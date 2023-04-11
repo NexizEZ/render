@@ -8,7 +8,7 @@ body {
 }
 
 .no-padding {
-    padding: 0 !important;
+    padding: 10px !important;
     margin: 0 !important;
 }
 
@@ -34,4 +34,57 @@ a {
 
 .header {
 
+}
+
+.logoname {
+    font-size: 24px;
+    font-family: 'Lucida Sans Regular', sans-serif;
+    color: white;
+    font-weight:bold;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: #e39c4b;
+}
+
+.bottom-right-nav {
+    position: sticky;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+.bottom-right-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+}
+  
+.bottom-right-nav a {
+    /*text-decoration: none; Text ohne Unterstreichung*/
+    color: white;
+    margin-left: 20px;
+}
+
+.main-container{
+    background-color: #edf5f4;
+    color: black;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+
+footer{
+    background-color: #1c8da1;
+    color:white;
+}
+
+.address p {
+    margin-bottom: 4px;
+  }
+
+.kontakt {
+    padding-top: 20px;
+}
+
+.kontakt p {
+    margin-bottom: 4px;
 }
