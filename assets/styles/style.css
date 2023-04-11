@@ -22,6 +22,11 @@ a {
     margin: 0px !important;
 }
 
+.sub_div {
+    position: absolute;
+    bottom: 5%;
+}
+
 .container {
     width: auto;
     margin: 0px !important;
