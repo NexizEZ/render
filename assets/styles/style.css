@@ -41,8 +41,6 @@ a {
     font-family: 'Lucida Sans Regular', sans-serif;
     color: white;
     font-weight:bold;
-    -webkit-text-stroke-width: 0.2px;
-    -webkit-text-stroke-color: #e39c4b;
 }
 
 .bottom-right-nav {
