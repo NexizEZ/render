@@ -68,54 +68,65 @@ footer {
     margin-bottom: 4px;
 }
 
+.headerfontsize {
+    font-size: 30px;
+    white-space: nowrap;
+}
+
 @media (max-width: 600px) {
     .logosettings {
-        width: 50%;
+        width: 15%;
     }
 }
 
 @media (min-width: 600px) {
     .logosettings {
-        width: 30%;
+        width: 10%;
     }
 }
 
 @media (max-width: 600px) {
     .logo {
-        height: 35%;
-        width: 35%;
+        height: 100%;
+        width: 100%;
     }
 }
 
 @media (min-width: 600px) {
     .logo {
-        height: 35%;
-        width: 35%;
+        height: 100%;
+        width: 100%;
     }
 }
 
 @media (max-width: 600px) {
     .logosettings2 {
-        width: 50%;
+        width: 40%;
     }
 }
 
 @media (min-width: 600px) {
     .logosettings2 {
-        width: 30%;
+        width: 60%;
     }
 }
 
 @media (max-width: 600px) {
+    .logo2 {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (min-width: 600px) {
     .logo2 {
         height: 50%;
         width: 50%;
     }
 }
 
-@media (min-width: 600px) {
-    .logo2 {
-        height: 50%;
-        width: 50%;
+@media (max-width: 600px) {
+    .containerhightphone {
+        height: 100%;
     }
 }
