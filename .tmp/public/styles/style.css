@@ -2,6 +2,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
 body {
     color: #030506;
     background-color: #ffffff;
