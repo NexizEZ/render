@@ -9,11 +9,6 @@
  * https://sailsjs.com/config/bootstrap
  */
 
-module.exports.bootstrap = function (cb) {
-  sails.moment = require('moment');
-
-cb();
-};
 
 module.exports.bootstrap = async function() {
 

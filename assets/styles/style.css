@@ -1,9 +1,12 @@
 body {
     color: #030506;
+    background-color: #ffffff;
 }
 
-a {
-    text-decoration: none;
+header {
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .2);
+    position: sticky; top: 0;
+    background-color: #F5DEB3;
 }
 
 .no-gutters {
@@ -18,80 +21,44 @@ a {
 
 a {
     color: #030506;
-  }
+    text-decoration: none;
+}
 
 .home {
     display: flex;
     justify-content: space-around;
 }
 
-.nav-container {
-    background-color: #1c8da1;
-    width: 100% !important;
-    margin: 0 0 0 0 !important;
-    padding: 0 0 1% 0 !important;
-    border-bottom: #e39c4b 6px solid;
+.bild {
+    background-image: url("");
 }
 
 .logocontainer {
     padding: 0 8% 0 0;
 }
 
-.container {
-    width: auto;
-    margin: 0px;
-    padding: 0px;
-}
-
-.container-fluid {
-    padding: 0;
-}
-
-.header {
-
-}
-
 .logoname {
     font-size: 24px;
     font-family: 'Lucida Sans Regular', sans-serif;
     color: white;
-    font-weight:bold;
+    font-weight: bold;
 }
 
-.bottom-right-nav {
-    position: sticky;
-    bottom: 10px;
-    right: 10px;
-  }
-  
-.bottom-right-nav ul {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 20px;
-}
-  
-.bottom-right-nav a {
-    /*text-decoration: none; Text ohne Unterstreichung*/
-    color: white;
-    margin-left: 20px;
-}
-
-.main-container{
-    background-color: #edf5f4;
+.main-container {
+    /*    background-color: #edf5f4; */
     color: black;
     align-items: center;
     padding: 10px 20px;
 }
 
-footer{
-    background-color: #1c8da1;
-    color:white;
+footer {
+    background-color: #F5DEB3;
+    color: white;
 }
 
 .address p {
     margin-bottom: 4px;
-  }
+}
 
 .kontakt {
     padding-top: 20px;
@@ -99,4 +66,56 @@ footer{
 
 .kontakt p {
     margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+    .logosettings {
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logosettings {
+        width: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        height: 35%;
+        width: 35%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logo {
+        height: 35%;
+        width: 35%;
+    }
+}
+
+@media (max-width: 600px) {
+    .logosettings2 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logosettings2 {
+        width: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo2 {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logo2 {
+        height: 50%;
+        width: 50%;
+    }
 }
