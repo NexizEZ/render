@@ -1,0 +1,121 @@
+body {
+    color: #030506;
+    background-color: #ffffff;
+}
+
+header {
+    box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .2);
+    position: sticky; top: 0;
+    background-color: #F5DEB3;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+a {
+    color: #030506;
+    text-decoration: none;
+}
+
+.home {
+    display: flex;
+    justify-content: space-around;
+}
+
+.bild {
+    background-image: url("");
+}
+
+.logocontainer {
+    padding: 0 8% 0 0;
+}
+
+.logoname {
+    font-size: 24px;
+    font-family: 'Lucida Sans Regular', sans-serif;
+    color: white;
+    font-weight: bold;
+}
+
+.main-container {
+    /*    background-color: #edf5f4; */
+    color: black;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+footer {
+    background-color: #F5DEB3;
+    color: white;
+}
+
+.address p {
+    margin-bottom: 4px;
+}
+
+.kontakt {
+    padding-top: 20px;
+}
+
+.kontakt p {
+    margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+    .logosettings {
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logosettings {
+        width: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        height: 35%;
+        width: 35%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logo {
+        height: 35%;
+        width: 35%;
+    }
+}
+
+@media (max-width: 600px) {
+    .logosettings2 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logosettings2 {
+        width: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo2 {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logo2 {
+        height: 50%;
+        width: 50%;
+    }
+}
