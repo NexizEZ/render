@@ -151,19 +151,11 @@ footer {
     letter-spacing: .25px;
     line-height: normal;
     max-width: 100%;
-    overflow: visible;
     padding: 40px 40px;
     margin-bottom: 100px;
-    position: relative;
     text-align: center;
-    text-transform: none;
-    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     width: auto;
-    will-change: transform,opacity;
-    z-index: 0;
   }
   
   .button-17:hover {
@@ -174,11 +166,6 @@ footer {
   .button-17:active {
     box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
     outline: none;
-  }
-  
-  .button-17:focus {
-    outline: none;
-    border: 2px solid #F5DEB3;
   }
   
   .button-17:not(:disabled) {
