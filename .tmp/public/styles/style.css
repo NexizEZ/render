@@ -5,7 +5,8 @@ body {
 
 header {
     box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .2);
-    position: sticky; top: 0;
+    position: sticky;
+    top: 0;
     background-color: #F5DEB3;
 }
 
@@ -51,41 +52,53 @@ a {
     padding: 10px 20px;
 }
 
-.wellcome{
+.wellcome {
     padding: 50px 30px;
 }
 
-.backware{
+.backware {
     padding: 20px 30px;
 }
 
-.backeryTeam{
+.backeryTeam {
     padding: 20px 30px;
 }
 
-.brot{
+.brot {
     padding: 20px 30px;
 }
 
-.bodytext-part1{
+.bodytext-part1 {
     padding: 0 40px 0 50px;
 }
 
-.bodytext-part2{
+.bodytext-part2 {
     padding: 0 40px 0 50px;
 }
 
-.bodytext-part3{
+.bodytext-part3 {
     padding: 0 40px 0 50px;
 }
 
-.easyfrisch-team{
+.easyfrisch-team {
     padding: 50px 50px;
 }
 
 footer {
     background-color: #F5DEB3;
-    color: white;
+    color: #3c4043;
+}
+
+.bakeryname {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.contact {
+    padding: 20px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    /*text-shadow: 2px 2px 4px #000000;*/
 }
 
 .address p {
@@ -93,11 +106,20 @@ footer {
 }
 
 .kontakt {
-    padding-top: 20px;
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: 600;
+    /*text-shadow: 2px 2px 4px #000000;*/
 }
 
 .kontakt p {
     margin-bottom: 4px;
+}
+
+.impressum {
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .headerfontsize {
