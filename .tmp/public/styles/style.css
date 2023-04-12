@@ -51,6 +51,38 @@ a {
     padding: 10px 20px;
 }
 
+.wellcome{
+    padding: 50px 30px;
+}
+
+.backware{
+    padding: 20px 30px;
+}
+
+.backeryTeam{
+    padding: 20px 30px;
+}
+
+.brot{
+    padding: 20px 30px;
+}
+
+.bodytext-part1{
+    padding: 0 40px 0 50px;
+}
+
+.bodytext-part2{
+    padding: 0 40px 0 50px;
+}
+
+.bodytext-part3{
+    padding: 0 40px 0 50px;
+}
+
+.easyfrisch-team{
+    padding: 50px 50px;
+}
+
 footer {
     background-color: #F5DEB3;
     color: white;
