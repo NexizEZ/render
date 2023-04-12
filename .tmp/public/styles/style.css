@@ -119,3 +119,9 @@ footer {
         width: 50%;
     }
 }
+
+@media (max-width: 600px) {
+    .containerhightphone {
+        height: 100%;
+    }
+}
