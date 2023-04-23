@@ -7,6 +7,10 @@ h3 {
     font-weight: 300;
 }
 
+.card {
+    position: static !important;
+}
+
 body {
     color: #030506;
     background-color: #ffffff;

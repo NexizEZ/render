@@ -20,7 +20,19 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  'GET /category/new': { view: 'pages/category/new' },
+  'POST /category': { controller: 'CategoryController', action: 'create' },
+  'GET /category/:id/destroy': { controller: 'CategoryController', action: 'destroyOne' },
+  'GET /category': { controller: 'CategoryController', action: 'find' },
 
+  'GET /item/new': { controller: 'ItemController', action: 'new' },
+  'POST /item': { controller: 'ItemController', action: 'create' },
+  'GET /item': { controller: 'ItemController', action: 'find' },
+  'GET /item/show': { controller: 'ItemController', action: 'findOne' },
+
+  'GET /item/:id/edit': { controller: 'ItemController', action: 'editOne' },
+  'POST /item/:id/update': { controller: 'ItemController', action: 'updateOne' },
+  'GET /item/:id/destroy': { controller: 'ItemController', action: 'destroyOne' },
 
   /***************************************************************************
   *                                                                          *
@@ -33,18 +45,5 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'GET /category/new': { view: 'pages/category/new' },
-  'POST /category': { controller: 'CategoryController', action:'create' },
-  'GET /category/:id/destroy': { controller: 'CategoryController', action: 'destroyOne' },
-  'GET /category': { controller: 'CategoryController', action: 'find' },
-
-  'GET /item/new': { controller: 'ItemController', action:'new' },
-  'POST /item': { controller: 'ItemController', action:'create' },
-  'GET /item': { controller: 'ItemController', action:'find' },
-  'GET /item/show': { controller: 'ItemController', action:'findOne' },
-
-  'GET /item/:id/edit': { controller: 'ItemController', action: 'editOne' },
-  'POST /item/:id/update': { controller: 'ItemController', action: 'updateOne' },
-  'GET /item/:id/destroy': { controller: 'ItemController', action: 'destroyOne' },
 
 };

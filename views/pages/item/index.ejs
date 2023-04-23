@@ -1,38 +1,38 @@
-<div class="container">
-    <h1>Speisen</h1>
+<div class="body-container">
+    <div class="container-fluid no-padding pt-4">
+        <div class="row">
+            <form action="/item">
+                <label>Suche</label>
+                <input type="text" value="" length="20" name="q">
+                <button class="green-button" type="submit">Suche</button>
+            </form>
+        </div>
+        <div class="row">
+            <% item.forEach(function(item){ %>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <img src="images/croissants.jpg" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <div class="row">
+                                <h5 class="card-title">
+                                    <%= item.name %>
+                                </h5>
+                                <p class="card-text">Product Name</p>
+                                <a href="#" class="btn btn-primary">Buy Now</a>
+                            </div>
+                            <div class="row">
+                                <td> <a class="green-button" href="/item/<%= item.id %>">anzeigen</a></td>
+                                <td> <a class="green-button" href="/item/<%= item.id %>/edit">ändern</a></td>
+                                <td> <a class="green-button" href="/item/<%= item.id %>/destroy">löschen</a></td>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <form action="/item">
-        <label>Suche</label>
-        <input type="text" value="" length="20" name="q">
-        <button class="green-button" type="submit">Suche</button>
-    </form>
-
-    <div class="item-content">
-        <table class="table">
-            <thead>
-                <th>Name</th>
-                <th>Preis</th>
-            </thead>
-            <tbody>
-                <% item.forEach(function(item){ %>
-                    <tr>
-                        <td>
-                            <%= item.name %>
-                        </td>
-                        <td>
-                            <%= item.price %>
-                        </td>
-                        <td>
-                            <%= item.category.name %>
-                        </td>
-                        <td> <a class="green-button" href="/item/<%= item.id %>">anzeigen</a></td>
-                        <td> <a class="green-button" href="/item/<%= item.id %>/edit">ändern</a></td>
-                        <td> <a class="green-button" href="/item/<%= item.id %>/destroy">löschen</a></td>
-                    </tr>
-                    <% }); %>
-            </tbody>
-        </table>
-        <a class="green-button" href="/item/new">Hinzufügen</a>
+                <% }); %>
+        </div>
+        <div class="row">
+            <a class="green-button" href="/item/new">Hinzufügen</a>
+        </div>
     </div>
-</div>
 </div>
