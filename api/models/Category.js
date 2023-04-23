@@ -11,28 +11,8 @@ module.exports = {
             columnType: 'integer',  
             required: true,
         },
-        brot: {
-            collection: 'brot',
-            via: 'category'
-        },
-        broetchen: {
-            collection: 'brot',
-            via: 'category'
-        },
-        suess: {
-            collection: 'suess',
-            via: 'category'
-        },
-        herzhaft: {
-            collection: 'herzhaft',
-            via: 'category'
-        },
-        glutenfrei: {
-            collection: 'glutenfrei',
-            via: 'category'
-        },
-        getraenke: {
-            collection: 'getraenke',
+        item: {
+            collection: 'item',
             via: 'category'
         },
     }

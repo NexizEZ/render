@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <form action="/item" method="post">
+        <div class="form-group">
+            <label for="Produkt">Name</label>
+            <input type="text" class="form-control" maxlength="40" name="name" placeholder="Produkt">
+            <small class="form-text text-muted">Bitte gebe den Namen des Produkts ein.</small>
+        </div>
+        <div class="form-group">
+            <label for="Produkt">Beschreibung</label>
+            <input type="text" class="form-control" maxlength="40" name="description" placeholder="Beschreibung">
+            <small class="form-text text-muted">Bitte gebe eine Beschriebung an.</small>
+        </div>
+        <div class="form-group">
+            <label for="Produkt">Typ</label>
+            <input type="text" class="form-control" maxlength="40" name="typ" placeholder="Typ">
+        </div>
+
+        <div class="form-group">
+            <label for="Produkt">Bild</label>
+            <input type="text" class="form-control" maxlength="40" name="picture" placeholder="Beschreibung">
+            <small class="form-text text-muted">Bitte lade ein Bild hoch.</small>
+        </div>
+        <div class="form-group">
+            <label for="Produkt">Preis</label>
+            <input type="number" class="form-control" maxlength="40" name="price" placeholder="Preis">
+            <small class="form-text text-muted">Bitte gebe einen Preis an.</small>
+        </div>
+        <div class="form-group">
+            <label for="Produkt">itemorder</label>
+            <input type="number" class="form-control" maxlength="40" name="itemorder" placeholder="itemorder">
+            <small class="form-text text-muted">itemorder.</small>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-form-label-lg">Kategorie</label>
+             <select class="form-select" name="category">
+            <% categories.forEach(function(category){ %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+            <% }); %>
+            </select>
+        </div>
+        <button type="submit" class="green-button mt-4">Hinzufügen</button>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Speisen</h1>
+
+    <form action="/item">
+        <label>Suche</label>
+        <input type="text" value="" length="20" name="q">
+        <button class="green-button" type="submit">Suche</button>
+    </form>
+
+    <div class="item-content">
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Preis</th>
+            </thead>
+            <tbody>
+                <% item.forEach(function(item){ %>
+                    <tr>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.price %>
+                        </td>
+                        <td>
+                            <%= item.category.name %>
+                        </td>
+                        <td> <a class="green-button" href="/item/<%= item.id %>">anzeigen</a></td>
+                        <td> <a class="green-button" href="/item/<%= item.id %>/edit">ändern</a></td>
+                        <td> <a class="green-button" href="/item/<%= item.id %>/destroy">löschen</a></td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <a class="green-button" href="/item/new">Hinzufügen</a>
+    </div>
+</div>
+</div>

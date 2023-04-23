@@ -1,0 +1,16 @@
+<div class="container">
+    <form action="/category" method="post">
+        <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+        <div>
+            <div class="form-group">
+                <label class="col-form-label-lg">Name</label>
+                <input type="text" class="form-control" maxlength="80" name="name">
+            </div>
+            <div class="form-group">
+                <label class="col-form-label-lg">Catorder</label>
+                <input type="number" class="form-control" maxlength="2" name="categoryorder">
+            </div>
+        </div>
+        <button type="submit" class="green-button mt-4">Hinzufügen</button>
+    </form>
+</div>
