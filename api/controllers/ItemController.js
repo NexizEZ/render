@@ -38,7 +38,7 @@ module.exports = {
 
   findOne: async function (req, res) {
     sails.log.debug("### List single item ###")
-    let item = await Item.findOne({ id: req.params.id });
+    let item = await Item.findOne({ id: req.params.id }).populate('category');
     res.view ('pages/item/show', { item: item } );
   },
 
@@ -58,6 +58,11 @@ module.exports = {
     sails.log.debug("### Update single item ###")
     let item = await Item.updateOne({ id: req.params.id }).set(req.body);
     res.redirect('/item');
+  },
+
+  getCategory: async function (req, res) {
+
   }
 };
+
 

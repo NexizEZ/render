@@ -8,7 +8,7 @@ module.exports = {
         price: { type: 'number', columnType: 'DECIMAL (6,2)' },
         itemorder: { type: 'number', columnType: 'integer', required: true },
         category: {
-            model: 'category'
+            model: 'Category'
         },
     },
 };
