@@ -21,7 +21,7 @@ module.exports = {
     res.redirect ('/item' );
   },
 
-  find: async function (req, res) {
+  getItems: async function (req, res) {
     sails.log.debug("### List all items ###")
     let items;
     if (req.query.q && req.query.q.length > 0) {
@@ -31,7 +31,7 @@ module.exports = {
         }
       })
     } else {
-      item = await Item.find().populate("category");
+      items = await Item.find().populate("category");
     }
     res.view ('pages/item/index', { items: items } );
   },
@@ -58,10 +58,6 @@ module.exports = {
     sails.log.debug("### Update single item ###")
     let item = await Item.updateOne({ id: req.params.id }).set(req.body);
     res.redirect('/item');
-  },
-
-  getCategory: async function (req, res) {
-
   }
 };
 

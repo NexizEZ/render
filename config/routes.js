@@ -27,7 +27,7 @@ module.exports.routes = {
 
   'GET /item/new': { controller: 'ItemController', action: 'new' },
   'POST /item': { controller: 'ItemController', action: 'create' },
-  'GET /item': { controller: 'ItemController', action: 'find' },
+  'GET /items': { controller: 'ItemController', action: 'getItems' },
   'GET /item/show': { controller: 'ItemController', action: 'findOne' },
 
   'GET /item/:id/edit': { controller: 'ItemController', action: 'editOne' },
