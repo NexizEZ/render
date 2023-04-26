@@ -176,6 +176,11 @@ footer {
     width: auto;
 }
 
+.button-17search {
+    max-height: 100%;
+    
+}
+
 .bottom {
     margin-bottom: 100px;
 }
@@ -291,7 +296,10 @@ footer {
     transform: translateY(-8px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: scale(1.1);
-  }
+    position: static !important;
+    z-index: -1;
+
+}
 
 .card-img-top {
     padding: 0 0 0 0;

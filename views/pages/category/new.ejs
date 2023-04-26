@@ -1,16 +1,18 @@
-<div class="container">
+<div class="container my-5">
     <form action="/category" method="post">
-        <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
-        <div>
-            <div class="form-group">
-                <label class="col-form-label-lg">Name</label>
-                <input type="text" class="form-control" maxlength="80" name="name">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label-lg">Catorder</label>
-                <input type="number" class="form-control" maxlength="2" name="categoryorder">
-            </div>
+      <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="name" class="form-label fw-bold">Category-Name</label>
+          <input type="text" class="form-control form-control-lg" id="name" name="name" maxlength="80" required>
         </div>
-        <button type="submit" class="green-button mt-4">Hinzufügen</button>
+        <div class="col-md-6">
+          <label for="categoryorder" class="form-label fw-bold">Category Order</label>
+          <input type="number" class="form-control form-control-lg" id="categoryorder" name="categoryorder" maxlength="2" required>
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+        <button type="submit" class="btn btn-primary btn-lg px-4 py-2 button-17">Add Category</button>
+      </div>
     </form>
-</div>
+  </div>

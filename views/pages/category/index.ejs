@@ -1,26 +1,32 @@
-<div class="container">
-    <h1>Kategorien</h1>
-
-    <div class="item-content">
-        <table class="table">
-            <thead>
-                <th>Name</th>
-            </thead>
-            <tbody>
-                <% categories.forEach(function(category){ %>
-                    <tr>
-                        <td>
-                            <%= category.name %>
-                        </td>
-                        <td>
-                            <a href="/category/<%= category.id %>/destroy">Löschen</a>
-                        </td>
-                    </tr>
-                    <% }); %>
-            </tbody>
+<div class="container py-4">
+    <h1 class="mb-4">Kategorien</h1>
+  
+    <div class="card">
+      <div class="card-body p-0">
+        <table class="table mb-0">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col" class="text-end">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% categories.forEach(function(category) { %>
+              <tr>
+                <td><%= category.name %></td>
+                <td class="text-end">
+                  <form action="/category/<%= category.id %>/destroy" method="POST">
+                    <button type="submit" class="btn btn-danger button-17 btn-sm">Löschen</button>
+                  </form>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
         </table>
-
-        <a class="green-button mt-4" href="/category/new">Hinzufügen</a>
+      </div>
+  
+      <div class="card-footer">
+        <a class="btn btn-success button-17 btn-sm" href="/category/new">Hinzufügen</a>
+      </div>
     </div>
-</div>
-</div>
+  </div>
