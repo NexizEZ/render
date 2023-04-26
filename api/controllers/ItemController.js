@@ -60,7 +60,13 @@ module.exports = {
   editOne: async function (req, res) {
     sails.log.debug("### Edit single item ###")
     let item = await Item.findOne({ id: req.params.id }).populate('category');
-    res.view('pages/item/edit', { item: item });
+    let categories
+    categories = await Category.find();
+
+    res.view('pages/item/edit', {
+      item: item,
+      categories,
+    });
   },
 
   updateOne: async function (req, res) {
