@@ -3,40 +3,44 @@
 
         <div class="row">
             <div class="container-fluid">
-                <form action="/search" method="get" class="searchForm">
-                    <div class="fixbar input-group">
-                        <input type="input" class="fixbar form-control rounded" placeholder="Search" name="search" />
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Filter
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li>
-                                    <label for="price_von">Preis Von:</label><br>
-                                    <input class="dropdown-item" type="number" id="price_von" name="price_von" value="0">
-                                </li>
-                                <li>
-                                    <label for="price_bis">Preis Bis:</label><br>
-                                    <input class="dropdown-item" type="number" id="price_bis" name="price_bis"
-                                        value="100">
-                                </li>
-                                <li>
-                                    <label class="col-form-label-lg">Kategorie</label>
-                                    <select class="form-select" name="category">
-                                        <option disabled selected value="0">select</option>
-                                        <% categories.forEach(function(category){ %>
-                                            <option value="<%= category.id %>">
-                                                <%= category.name %>
-                                            </option>
-                                            <% }); %>
-                                    </select>
-                                </li>
-                            </ul>
+                <div class="searchform col-sm-0 d-flex justify-content-end text-center">
+                    <form action="/search" method="get" class="searchForm searchForm">
+                        <div class="fixbar input-group">
+                            <input type="input" class="fixbar form-control rounded" placeholder="Search"
+                                name="search" />
+                            <div class="fixbar dropdown">
+                                <button class="fixbar2 button-17 fixbar btn btn-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Filter
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li>
+                                        <label for="price_von">Preis Von:</label><br>
+                                        <input class="fixbar dropdown-item" type="number" id="price_von"
+                                            name="price_von" value="0">
+                                    </li>
+                                    <li>
+                                        <label for="price_bis">Preis Bis:</label><br>
+                                        <input class="dropdown-item" type="number" id="price_bis" name="price_bis"
+                                            value="100">
+                                    </li>
+                                    <li>
+                                        <label class="col-form-label-lg">Kategorie</label>
+                                        <select class="form-select" name="category">
+                                            <option disabled selected value="0">select</option>
+                                            <% categories.forEach(function(category){ %>
+                                                <option value="<%= category.id %>">
+                                                    <%= category.name %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button type="submit" class="button-17 fixbar btn btn-secondary">Suchen</button>
                         </div>
-                        <button type="submit" class="fixbar btn btn-outline-primary">search</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -45,7 +49,7 @@
                 <% items.forEach(function(item){ %>
                     <div class="col">
                         <div class="card">
-                            <img src="images/croissants.jpg" class="card-img-top" alt="Product Image">
+                            <img src="images/croissants.jpg" class="" alt="Product Image">
                             <div class="card-body">
                                 <div class="row">
                                     <h5 class="card-title">
@@ -57,22 +61,30 @@
                                     <h5 class="card-item-price">
                                         € <%= item.price %>
                                     </h5>
-                                    <a href="#" class="btn btn-secondary">Jetzt kaufen</a>
+                                </div>
+                                <div class="row">
+                                    <div class="container">
+                                        <a href="#" class="button-17 btn btn-secondary">Jetzt kaufen</a>
+                                    </div>
                                 </div>
                                 <div class="row ">
                                     <div class="nav-card-container">
                                         <div class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Weitere Optionen</a>
+                                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                                                role="button" aria-expanded="false">Weitere Optionen</a>
                                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                                 <li>
-                                                    <td><a class="dropdown-item" href="/item/<%= item.id %>">Produkt anzeigen</a></td>
+                                                    <td><a class="dropdown-item" href="/item/<%= item.id %>">Produkt
+                                                            anzeigen</a></td>
                                                 </li>
                                                 <li>
-                                                    <td><a class="dropdown-item" href="/item/<%= item.id %>/edit">Produkt bearbeiten</a>
+                                                    <td><a class="dropdown-item"
+                                                            href="/item/<%= item.id %>/edit">Produkt bearbeiten</a>
                                                     </td>
                                                 </li>
                                                 <li>
-                                                    <td><a class="dropdown-item" href="/item/<%= item.id %>/destroy">Produkt löschen</a></td>
+                                                    <td><a class="dropdown-item"
+                                                            href="/item/<%= item.id %>/destroy">Produkt löschen</a></td>
                                                 </li>
                                             </ul>
                                         </div>
@@ -86,10 +98,13 @@
             </div>
             <div class="add-item-container">
                 <div class="row">
-                    <button type="button" class="btn btn-secondary">Produkt hinzufügen</button>
+                    <div>
+                        <a class="button-17" href="/item/new" role="button" aria-expanded="false">
+                            Produkt hinzufügen
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>

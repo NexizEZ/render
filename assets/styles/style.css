@@ -28,6 +28,12 @@ header {
     z-index: unset !important;
 }
 
+.fixbar2 {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    padding-left: 1%;
+}
+
 
 .no-gutters {
     margin-right: 0;
@@ -171,10 +177,13 @@ footer {
     line-height: normal;
     max-width: 100%;
     padding: 40px 40px;
-    margin-bottom: 100px;
     text-align: center;
     touch-action: manipulation;
     width: auto;
+}
+
+.bottom {
+    margin-bottom: 100px;
 }
 
 .button-17:hover {
@@ -265,8 +274,18 @@ footer {
 }
 
 .card {
-    border: 2px;
-    border-style: solid;
+    background-color: #F5DEB3;
+    position: static;
+    z-index: -999 !important;
+}
+
+.card:hover {
+    background-color: #ffffff;
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    position: static !important;
+    z-index: -999 !important;
 }
 
 .card-img-top {
@@ -278,6 +297,11 @@ footer {
     font-size: 20px;
     font-weight: bolder;
     text-align: start;
+}
+
+.searchform {
+    margin-top: 2%;
+    margin-right: 1%;
 }
 
 .card-item-price {
