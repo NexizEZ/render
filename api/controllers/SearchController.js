@@ -16,17 +16,15 @@ module.exports = {
 
         let where = {};
 
-
-
         if (req.query.search && req.query.search.length > 0) {
             where = {
-              or: [
-                { name: { 'contains': req.query.search } },
-                { description: { 'contains': req.query.search } },
-                { type: { 'contains': req.query.search } },
-              ]
+                or: [
+                    { name: { 'contains': req.query.search } },
+                    { description: { 'contains': req.query.search } },
+                    { type: { 'contains': req.query.search } },
+                ]
             };
-          }
+        }
 
         if (req.query.price_von) {
             where.price = { '>=': parseFloat(req.query.price_von) };
@@ -41,11 +39,9 @@ module.exports = {
         }
 
         searchResults = await Item.find({ where }).populate("category");
-
         categories = await Category.find();
 
         sails.log.debug("### AAAAAAAAAAAAa " + req.query.category + " BBBBBBBBBBbb ###");
-
 
         return res.view('pages/item/index', {
             items: searchResults,
