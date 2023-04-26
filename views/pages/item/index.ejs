@@ -1,17 +1,49 @@
 <div class="body-container">
     <div class="container-fluid no-padding pt-4">
+
         <div class="row">
-            <form action="/item">
-                <label>Suche</label>
-                <input type="text" value="" length="20" name="q">
-                <button class="green-button" type="submit">Suche</button>
-            </form>
+            <div class="container-fluid">
+                <form action="/search" method="get" class="searchForm">
+                    <div class="fixbar input-group">
+                        <input type="input" class="fixbar form-control rounded" placeholder="Search" name="search" />
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Filter
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <label for="price_von">Preis Von:</label><br>
+                                    <input class="dropdown-item" type="text" id="price_von" name="price_von" value="0">
+                                </li>
+                                <li>
+                                    <label for="price_bis">Preis Bis:</label><br>
+                                    <input class="dropdown-item" type="text" id="price_bis" name="price_bis" value="100">
+                                </li>
+                                <li>
+
+                                    <label class="col-form-label-lg">Kategorie</label>
+                                    <select class="form-select" name="category">
+                                        <option disabled selected value="0">select</option>
+                                        <% categories.forEach(function(category){ %>
+                                            <option value="<%= category.id %>">
+                                                <%= category.name %>
+                                            </option>
+                                            <% }); %>
+                                    </select>
+
+                                </li>
+                            </ul>
+                        </div>
+                        <button type="submit" class="fixbar btn btn-outline-primary">search</button>
+                    </div>
+                </form>
+            </div>
         </div>
+
         <div class="row">
             <% items.forEach(function(item){ %>
                 <div class="col-sm-3">
-
-
                     <div class="card">
                         <img src="images/croissants.jpg" class="card-img-top" alt="Product Image">
                         <div class="card-body">

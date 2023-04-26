@@ -5,7 +5,7 @@ module.exports = {
         description: { type: 'string', columnType: 'varchar(80)' },
         type: { type: 'string', columnType: 'varchar(80)' },
         picture: { type: 'string', columnType: 'varchar(80)' },
-        price: { type: 'number', columnType: 'DECIMAL (6,2)' },
+        price: { type: 'number', columnType: 'DECIMAL (6,1)' },
         itemorder: { type: 'number', columnType: 'integer', required: true },
         category: {
             model: 'category'

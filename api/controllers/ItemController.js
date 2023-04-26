@@ -18,28 +18,37 @@ module.exports = {
     sails.log.debug("### Create item ###")
     let params = req.allParams();
     await Item.create(params);
-    res.redirect ('/item' );
+    res.redirect('/item');
   },
 
-  getItems: async function (req, res) {
+  indexAction: async function (req, res) {
     sails.log.debug("### List all items ###")
     let items;
+    let categories
+
+    sails.log.debug("### List " + categories + " items ###")
+
     if (req.query.q && req.query.q.length > 0) {
       items = await Item.find({
         name: {
           'contains': req.query.q
         }
       })
+      categories = await Category.find();
     } else {
       items = await Item.find().populate("category");
+      categories = await Category.find();
     }
-    res.view ('pages/item/index', { items: items } );
+    res.view('pages/item/index', {
+      items: items,
+      categories,
+    });
   },
 
   findOne: async function (req, res) {
     sails.log.debug("### List single item ###")
     let item = await Item.findOne({ id: req.params.id }).populate('category');
-    res.view ('pages/item/show', { item: item } );
+    res.view('pages/item/show', { item: item });
   },
 
   destroyOne: async function (req, res) {

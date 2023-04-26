@@ -20,19 +20,6 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  'GET /category/new': { view: 'pages/category/new' },
-  'POST /category': { controller: 'CategoryController', action: 'create' },
-  'GET /category/:id/destroy': { controller: 'CategoryController', action: 'destroyOne' },
-  'GET /category': { controller: 'CategoryController', action: 'find' },
-
-  'GET /item/new': { controller: 'ItemController', action: 'new' },
-  'POST /item': { controller: 'ItemController', action: 'create' },
-  'GET /items': { controller: 'ItemController', action: 'getItems' },
-  'GET /item/show': { controller: 'ItemController', action: 'findOne' },
-
-  'GET /item/:id/edit': { controller: 'ItemController', action: 'editOne' },
-  'POST /item/:id/update': { controller: 'ItemController', action: 'updateOne' },
-  'GET /item/:id/destroy': { controller: 'ItemController', action: 'destroyOne' },
 
   /***************************************************************************
   *                                                                          *
@@ -44,6 +31,21 @@ module.exports.routes = {
   * not match any of those, it is matched against static assets.             *
   *                                                                          *
   ***************************************************************************/
+ 
+  'GET /category/new': { view: 'pages/category/new' },
+  'POST /category': { controller: 'CategoryController', action: 'create' },
+  'GET /category/:id/destroy': { controller: 'CategoryController', action: 'destroyOne' },
+  'GET /category': { controller: 'CategoryController', action: 'find' },
 
+  'GET /item/new': { controller: 'ItemController', action: 'new' },
+  'POST /item': { controller: 'ItemController', action: 'create' },
+  'GET /item': { controller: 'ItemController', action: 'indexAction' },
+  'GET /item/show': { controller: 'ItemController', action: 'findOne' },
+
+  'GET /search': { controller: 'SearchController', action: 'searchItems' },
+
+  'GET /item/:id/edit': { controller: 'ItemController', action: 'editOne' },
+  'POST /item/:id/update': { controller: 'ItemController', action: 'updateOne' },
+  'GET /item/:id/destroy': { controller: 'ItemController', action: 'destroyOne' },
 
 };
