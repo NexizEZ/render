@@ -181,6 +181,11 @@ footer {
     
 }
 
+.weitereoptionen:hover {
+    background: #F5DEB3;
+    color: #000000;
+}
+
 .bottom {
     margin-bottom: 100px;
 }

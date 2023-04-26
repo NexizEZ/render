@@ -1,18 +1,19 @@
 <div class="container my-5">
     <form action="/category" method="post">
-      <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
-      <div class="row g-3">
-        <div class="col-md-6">
-          <label for="name" class="form-label fw-bold">Category-Name</label>
-          <input type="text" class="form-control form-control-lg" id="name" name="name" maxlength="80" required>
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label fw-bold">Category-Name</label>
+                <input type="text" class="form-control form-control-lg" id="name" name="name" maxlength="80" required>
+            </div>
+            <div class="col-md-6">
+                <label for="categoryorder" class="form-label fw-bold">Category Order</label>
+                <input type="number" class="form-control form-control-lg" id="categoryorder" name="categoryorder"
+                    maxlength="2" required>
+            </div>
         </div>
-        <div class="col-md-6">
-          <label for="categoryorder" class="form-label fw-bold">Category Order</label>
-          <input type="number" class="form-control form-control-lg" id="categoryorder" name="categoryorder" maxlength="2" required>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+            <button type="submit" class="btn btn-primary btn-lg px-4 py-2 button-17">Add Category</button>
         </div>
-      </div>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-        <button type="submit" class="btn btn-primary btn-lg px-4 py-2 button-17">Add Category</button>
-      </div>
     </form>
-  </div>
+</div>

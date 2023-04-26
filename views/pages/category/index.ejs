@@ -1,32 +1,34 @@
 <div class="container py-4">
     <h1 class="mb-4">Kategorien</h1>
-  
+
     <div class="card">
-      <div class="card-body p-0">
-        <table class="table mb-0">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col" class="text-end">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% categories.forEach(function(category) { %>
-              <tr>
-                <td><%= category.name %></td>
-                <td class="text-end">
-                  <form action="/category/<%= category.id %>/destroy" method="POST">
-                    <button type="submit" class="btn btn-danger button-17 btn-sm">Löschen</button>
-                  </form>
-                </td>
-              </tr>
-            <% }); %>
-          </tbody>
-        </table>
-      </div>
-  
-      <div class="card-footer">
-        <a class="btn btn-success button-17 btn-sm" href="/category/new">Hinzufügen</a>
-      </div>
+        <div class="card-body p-0">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col" class="text-end"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% categories.forEach(function(category) { %>
+                        <tr>
+                            <td>
+                                <%= category.name %>
+                            </td>
+                            <td class="text-end">
+                                <form action="/category/<%= category.id %>/destroy" method="POST">
+                                    <button type="submit" class="btn btn-danger button-17 btn-sm">Löschen</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-footer">
+            <a class="btn btn-success button-17 btn-sm" href="/category/new">Hinzufügen</a>
+        </div>
     </div>
-  </div>
+</div>
