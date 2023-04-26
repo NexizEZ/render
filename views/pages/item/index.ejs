@@ -14,14 +14,14 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li>
                                     <label for="price_von">Preis Von:</label><br>
-                                    <input class="dropdown-item" type="text" id="price_von" name="price_von" value="0">
+                                    <input class="dropdown-item" type="number" id="price_von" name="price_von" value="0">
                                 </li>
                                 <li>
                                     <label for="price_bis">Preis Bis:</label><br>
-                                    <input class="dropdown-item" type="text" id="price_bis" name="price_bis" value="100">
+                                    <input class="dropdown-item" type="number" id="price_bis" name="price_bis"
+                                        value="100">
                                 </li>
                                 <li>
-
                                     <label class="col-form-label-lg">Kategorie</label>
                                     <select class="form-select" name="category">
                                         <option disabled selected value="0">select</option>
@@ -31,7 +31,6 @@
                                             </option>
                                             <% }); %>
                                     </select>
-
                                 </li>
                             </ul>
                         </div>

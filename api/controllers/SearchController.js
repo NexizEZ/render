@@ -26,11 +26,11 @@ module.exports = {
             };
         }
 
-        if (req.query.price_von) {
+        if (req.query.price_von && req.query.price_von > 0) {
             where.price = { '>=': parseFloat(req.query.price_von) };
         }
 
-        if (req.query.price_bis) {
+        if (req.query.price_bis && req.query.price_bis > 0) {
             where.price = { '<=': parseFloat(req.query.price_bis) };
         }
 
@@ -40,8 +40,6 @@ module.exports = {
 
         searchResults = await Item.find({ where }).populate("category");
         categories = await Category.find();
-
-        sails.log.debug("### AAAAAAAAAAAAa " + req.query.category + " BBBBBBBBBBbb ###");
 
         return res.view('pages/item/index', {
             items: searchResults,
