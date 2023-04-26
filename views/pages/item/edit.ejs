@@ -1,19 +1,45 @@
-<div class="container">
+<div class="edit-container">
+    <div class="row">
+        <div class="col d-flex justify-content-start">
+            <h4 class="page-title">Produkt bearbeiten</h4>
+        </div>
+    </div>
     <form action="/item/<%=item.id%>/update" method="post">
-        <div>
-            <div class="form-group">
-                <label class="col-form-label-lg">Name</label>
-                <input type="text" class="form-control" maxlength="80" value="<%= item.name %>" name="name">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label-lg">Preis</label>
-                <input type="text" class="form-control" maxlength="8" value="<%= item.price %>" name="price">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label-lg">Beschreibung</label>
-                <input type="text" maxlength="255" class="form-control" size="40" value="<%= item.description %>" name="description">
+        <div class="form-group">
+            <label class="col-form-label-lg">Name</label>
+            <input type="text" class="form-control" maxlength="80" value="<%= item.name %>" name="name">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg">Preis</label>
+            <input type="text" class="form-control" maxlength="8" value="<%= item.price %>" name="price">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg">Beschreibung</label>
+            <input type="text" maxlength="255" class="form-control" size="40" value="<%= item.description %>"
+                name="description">
+        </div>
+
+        <label class="col-form-label-lg">Kategorie</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>---</option>
+            <option value="1">
+                <%= item.category %>
+            </option>
+            <option value="2">Süß</option>
+            <option value="3">Three</option>
+        </select>
+
+        <div class="form-group">
+            <label class="col-form-label-lg">Bild</label>
+            <input type="text" maxlength="255" class="form-control" size="40" value="<%= item.picture %>" name="picture">
+        </div>
+        <div class="row align-items-center no-padding">
+            <div class="col-md-0 col-md-0 d-flex justify-content-center text-center no-padding">
+                <div class="submit-button">
+                    <button type="submit" class="btn btn-secondary">Aktualisieren</button>
+                </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Aktualisieren</button>
     </form>
+    
 </div>

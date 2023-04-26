@@ -1,41 +1,67 @@
+<div class="show-container">
 
-<div class="container">
-    <div class="card w-100 mt-4">
-        <div>
-            <div class="row">
-                <div class="col-2">
-                    Name
-                </div> 
-                <div class="col-10">
+    <div>
+        <div class="row">
+            <div class="col d-flex justify-content-start align-items-center">
+                <div class="show-productName">
                     <%= item.name %>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-2">
-                    Preis
-                </div> 
-                <div class="col-10">
-                    <%= item.price %>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12 d-flex justify-content-start">
+                <img src="images/croissants.jpg" class="show-item-img" alt="Product Image">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5 col-md-4">
+                <div class="show-headline"> Preis </div>
+            </div>
+            <div class="col-7 col-md-8">
+                <div class="show-content"> € <%= item.price %>
                 </div>
             </div>
+        </div>
+
+        <% if(item.category) { %>
             <div class="row">
-                <div class="col-2">
-                    Beschreibung
-                </div> 
-                <div class="col-10">
-                    <%= item.description %>
+                <div class="col-5 col-md-4">
+                    <div class="show-headline"> Kategorie </div>
                 </div>
-            </div>
-            <% if(item.category) { %>
-                <div class="row">
-                    <div class="col-2">
-                        Kategorie
-                    </div> 
-                    <div class="col-10">
+                <div class="col-7 col-md-8">
+                    <div class="show-content">
                         <%= item.category.name %>
                     </div>
                 </div>
-                <% } %>
+            </div>
+            <% } %>
+                <div class="row">
+                    <div class="col-12 col-md-4 order-1 order-md-1">
+                        <div class="show-headline"> Beschreibung </div>
+                    </div>
+                    <div class="col-12 col-md-8 order-2 order-md-2">
+                        <div class="show-content">
+                            <%= item.description %>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="row align-items-center no-padding">
+        <div class="col-md-0 col-md-0 d-flex justify-content-center text-center no-padding">
+            <div class="submit-button">
+                <button onclick="history.back()" class="btn btn-secondary">Zurück</button>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function (event) {
+                        var backButton = document.getElementById("back-btn");
+                        backButton.addEventListener("click", function (event) {
+                            history.back();
+                        });
+                    });
+                </script>
+
+            </div>
         </div>
     </div>
 </div>

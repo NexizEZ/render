@@ -40,33 +40,56 @@
             </div>
         </div>
 
-        <div class="row">
-            <% items.forEach(function(item){ %>
-                <div class="col-sm-3">
-                    <div class="card">
-                        <img src="images/croissants.jpg" class="card-img-top" alt="Product Image">
-                        <div class="card-body">
-                            <div class="row">
-                                <h5 class="card-title">
-                                    <%= item.name %>
-                                </h5>
-                                <p class="card-text">Product Name</p>
-                                <a href="#" class="btn btn-primary">Buy Now</a>
-                            </div>
-                            <div class="row">
-                                <td> <a class="green-button" href="/item/<%= item.id %>">anzeigen</a></td>
-                                <td> <a class="green-button" href="/item/<%= item.id %>/edit">ändern</a></td>
-                                <td> <a class="green-button" href="/item/<%= item.id %>/destroy">löschen</a></td>
+        <div class="item-container">
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <% items.forEach(function(item){ %>
+                    <div class="col">
+                        <div class="card">
+                            <img src="images/croissants.jpg" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <div class="row">
+                                    <h5 class="card-title">
+                                        <%= item.name %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= item.description %>
+                                    </p>
+                                    <h5 class="card-item-price">
+                                        € <%= item.price %>
+                                    </h5>
+                                    <a href="#" class="btn btn-secondary">Jetzt kaufen</a>
+                                </div>
+                                <div class="row ">
+                                    <div class="nav-card-container">
+                                        <div class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Weitere Optionen</a>
+                                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <li>
+                                                    <td><a class="dropdown-item" href="/item/<%= item.id %>">Produkt anzeigen</a></td>
+                                                </li>
+                                                <li>
+                                                    <td><a class="dropdown-item" href="/item/<%= item.id %>/edit">Produkt bearbeiten</a>
+                                                    </td>
+                                                </li>
+                                                <li>
+                                                    <td><a class="dropdown-item" href="/item/<%= item.id %>/destroy">Produkt löschen</a></td>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
 
-                <% }); %>
+                    <% }); %>
+            </div>
+            <div class="add-item-container">
+                <div class="row">
+                    <button type="button" class="btn btn-secondary">Produkt hinzufügen</button>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <a class="green-button" href="/item/new">Hinzufügen</a>
-        </div>
+
     </div>
 </div>

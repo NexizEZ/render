@@ -207,6 +207,108 @@ footer {
     margin-bottom: 20px;
 }
 
+.show-container {
+    display: grid;
+    align-items: center;
+    padding: 20px 10px 20px 10px;
+}
+
+.show-productName {
+    display: grid;
+    color: #030506;
+    font-size: 28px;
+    font-weight: bolder;
+    padding: 10px 0 0 8px;
+}
+
+.show-item-img {
+    padding: 10px 10px 0 10px;
+}
+
+.show-headline {
+    text-align: start;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 0 0 20px;
+}
+
+.show-content {
+    text-align: start;
+    align-items: center;
+    font-size: 16px;
+    padding: 10px 0 10px 20px;
+}
+
+.page-title-container {
+    display: grid;
+    align-items: center;
+    padding: 20px 20px 10px 20px;
+}
+
+.search-input-group {
+    padding: 10px 0 20px 0;
+}
+
+/* Name der Seite */
+.page-title {
+    color: #030506;
+    font-size: 30px;
+    font-weight: bolder;
+    padding: 0 0 0 8px;
+}
+
+.item-container {
+    display: grid;
+    place-items: center;
+    padding: 20px 20px;
+}
+
+.card {
+    border: 2px;
+    border-style: solid;
+}
+
+.card-img-top {
+    padding: 5px 5px 0 5px;
+}
+
+.card-title {
+    color: #030506;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: start;
+}
+
+.card-item-price {
+    color: #030506;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: end;
+}
+
+.nav-card-container {
+    font-size: 13px;
+    place-items: center;
+    border: none;
+    padding: 10px 10px 0 10px;
+}
+
+.add-item-container {
+    display: grid;
+    place-items: center;
+    padding: 30px 0 30px 0;
+}
+
+.edit-container {
+    padding: 20px 20px;
+    align-items: center;
+}
+
+.submit-button {
+    padding: 20px 20px;
+}
+
 .searchFilter.btn {
     display: inline-block;
     font-weight: 400;
