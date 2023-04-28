@@ -10,7 +10,7 @@
  */
 
 
-module.exports.bootstrap = async function() {
+module.exports.bootstrap = async function () {
 
   // By convention, this is a good place to set up fake data during development.
   //
@@ -28,4 +28,11 @@ module.exports.bootstrap = async function() {
   // ]);
   // ```
 
+  if (await User.count() > 0) {
+    return;
+  }
+
+  await User.createEach([
+    { emailAddress: 'admin@easyfrisch.de', fullName: 'Samanta Timm', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('admin') },
+  ])
 };
