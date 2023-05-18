@@ -26,8 +26,6 @@ module.exports = {
     let items;
     let categories
 
-    sails.log.debug("### List " + categories + " items ###")
-
     if (req.query.q && req.query.q.length > 0) {
       items = await Item.find({
         name: {

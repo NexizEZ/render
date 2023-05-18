@@ -68,5 +68,21 @@ module.exports.routes = {
   'GET /item/:id/destroy': { controller: 'ItemController', action: 'destroyOne' },
 
 
+  /***************************************************************************
+  *                                                                          *
+  *       Shopping Basked API                                                *
+  *                                                                          *
+  ***************************************************************************/
+ 
+  'GET /shopping': { action: 'view-menu-shopping' },
+  
+  'GET /api/category': { action: 'api/category/index'},
+
+  'GET /api/basket': {  action:'api/basket/get' },
+  'POST /api/basket': {  action:'api/basket/add' },
+  'POST /api/address': {  action:'api/basket/post-address' },
+
+
+
 
 };
