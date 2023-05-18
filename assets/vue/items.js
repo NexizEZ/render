@@ -1,15 +1,15 @@
 export default {
     data() {
       return {
-        categories: [],
+        items: [],
         om: "",
       };
     },
     created() {
-      let url = new URL(origin + "/api/category");
+      let url = new URL(origin + "/item");
       fetch(url)
         .then((res) => res.json())
-        .then((data) => (this.categories = data));
+        .then((data) => (this.items = data));
     },
     methods: {
       order: function (event) {
@@ -27,16 +27,14 @@ export default {
     template: `
       <div class="container">
           <span class="h1">Speisekarte</span>
-          <div class="my-5" v-for="category in this.categories">
-          <span class="h3">{{ category.name }}</span>
           <hr>
-              <div class="mt-2" v-for="meal in category.meals">
-                  <div class="h4">{{ meal.name }}</div>
+              <div class="mt-2" v-for="item in items">
+                  <div class="h4">{{ item.name }}</div>
                   <div class="d-flex justify-content-between">
-                      <div class="h6">{{ meal.description }} </div>
+                      <div class="h6">{{ item.description }} </div>
                       <div>
-                          <span class="h6"> {{ meal.price }} &euro;</span>
-                          <span :id="meal.id" class="ml-2 btn btn-outline-primary" @click="order">Bestellen</span>
+                          <span class="h6"> {{ item.price }} &euro;</span>
+                          <span :id="item.id" class="ml-2 btn btn-outline-primary" @click="order">Bestellen</span>
                       </div>
                   </div>
               </div>
