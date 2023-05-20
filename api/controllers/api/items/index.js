@@ -4,7 +4,7 @@ module.exports = {
     friendlyName: 'Index',
   
   
-    description: 'Index category.',
+    description: 'Index Items.',
   
   
     inputs: {
@@ -19,7 +19,7 @@ module.exports = {
   
     fn: async function (inputs) {
   
-      return categories = await Category.find().populate('item');
+      return items = await Item.find().populate("category");
   
       
   
