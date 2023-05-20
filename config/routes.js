@@ -74,7 +74,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
  
-  'GET /shopping': { action: 'view-menu-shopping' },
+  'GET /bestellen': { action: 'view-menu-shopping' },
   
   'GET /api/items': { action: 'api/items/index'},
 

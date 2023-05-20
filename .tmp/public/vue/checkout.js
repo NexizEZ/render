@@ -1,23 +1,23 @@
 export default {
     data() {
-        return {
-            name: "",
-            address: "",
-            basket: []
-        };
+      return {
+        name: "",
+        address: "",
+        basket: []
+      };
     },
     methods: {
-
-    },
+  
+    },  
     created() {
         let url = new URL(origin + '/api/basket');
         fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                this.basket = data.basket,
-                    this.name = data.address.name,
-                    this.address = data.address.address
-            })
+        .then(res => res.json())
+        .then(data => {
+          this.basket = data.basket,
+          this.name = data.address.name,
+          this.address = data.address.address
+        })
     },
     template: `
     <div class="container">
@@ -40,4 +40,5 @@ export default {
         </div>
       </div>
       `,
-};
+  };
+  

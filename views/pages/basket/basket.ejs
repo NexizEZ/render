@@ -3,7 +3,7 @@
 </div>
 <script type="module">
 
-    import Items from "/vue/itmes.js";
+    import Itemss from "/vue/item.js";
     import Basket from "/vue/basket.js";
     import Address from "/vue/address.js";
     import Checkout from "/vue/checkout.js";
@@ -11,7 +11,7 @@
 
 
     const routes = [
-        { path: '/', component: Items },
+        { path: '/', component: Itemss },
         { path: '/basket', component: Basket },
         { path: '/address', component: Address },
         { path: '/checkout', component: Checkout },
@@ -20,7 +20,7 @@
 
     const router = VueRouter.createRouter({
         history: VueRouter.createWebHashHistory(),
-        routes, 
+        routes,
     })
 
     // 5. Create and mount the root instance.
