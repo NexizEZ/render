@@ -10,5 +10,10 @@ module.exports = {
         category: {
             model: 'category'
         },
+        order: {
+            collection: 'Order',
+            via: 'item',
+            through: 'OrderItem'
+          },
     },
 };

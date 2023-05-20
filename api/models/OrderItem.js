@@ -1,14 +1,18 @@
-/**
- * OrderItem.js
- *
- * A many to many table to have multiple orders with mutliple items.
- */
+// api/models/OrderItem.js
 
 module.exports = {
-    attributes: {
-      order: { model: 'order' },
-      item: { model: 'item' },
-      quantity: { type: 'number', required: true }
+  attributes: {
+    quantity: {
+      type: 'number',
+      required: true
+    },
+    item: {
+      model: 'item',
+      required: true
+    },
+    order: {
+      model: 'Order',
+      required: true
     }
   }
-  
+};
