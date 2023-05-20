@@ -23,6 +23,7 @@ module.exports = {
 
     fn: async function (inputs) {
 
+        
         let item = inputs.item;
         item.quantity = inputs.quantity;
         this.req.session.basket.push(item);

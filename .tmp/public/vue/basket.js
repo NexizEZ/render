@@ -12,10 +12,11 @@ export default {
       .then(data => this.basket = data.basket);
   },
   methods: {
-    updateQuantity(item) {
+      
+      updateQuantity(event) {
       let url = new URL(origin + "/api/itemquantity");
       let data = new FormData();
-      data.append("item", item);
+      data.append("id", event.target.id);
       data.append("quantity", this.quantity);
       fetch(url, {
         method: "POST",
@@ -23,7 +24,9 @@ export default {
       }).then((result) => {
         this.$router.push("/basket");
       });
-      },
+    },
+
+
   },
   template: `
     <h1>Einkaufskorb</h1>
@@ -33,7 +36,7 @@ export default {
           {{ item.name }} <br>
           {{ item.quantity }}
           <input type="number" v-model="quantity" placeholder="New amount">
-          <span class="btn btn-primary button-17" @click="updateQuantity(item.id)">Bestellen</span>
+          <span v-model="quantity" class="btn btn-primary button-17" @click="updateQuantity()">Bestellen</span>
         </li>
       </ul>
       <router-link class="btn btn-secondary mr-5 button-17" to="/">Weiter einkaufen</router-link>

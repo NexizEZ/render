@@ -4,9 +4,15 @@
 <script type="module">
 
     import Basket from "/vue/basket.js";
+    import Address from "/vue/address.js";
+    import Checkout from "/vue/checkout.js";
+    import Confirmation from "/vue/confirmation.js";
 
     const routes = [
-    { path: '/', component: Basket },
+        { path: '/', component: Basket },
+        { path: '/address', component: Address },
+        { path: '/checkout', component: Checkout },
+        { path: '/confirmation', component: Confirmation },
     ]
 
     const router = VueRouter.createRouter({
