@@ -74,13 +74,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
  
-  'GET /bestellen': { action: 'view-menu-shopping' },
+  'GET /order': { action: 'view-menu-shopping' },
+  'GET /basket': { action: 'view-basket' },
   
   'GET /api/items': { action: 'api/items/index'},
 
-  'GET /api/v1/basket': {  action:'api/basket/get' },
-  'POST /api/v1/basket': {  action:'api/basket/add' },
-  'POST /api/v1/address': {  action:'api/basket/post-address' },
+  'GET /api/basket': {  action:'api/basket/get' },
+  'POST /api/basket': {  action:'api/basket/add' },
+  'POST /api/address': {  action:'api/basket/post-address' },
 
 
 
