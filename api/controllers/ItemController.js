@@ -80,6 +80,7 @@ module.exports = {
       totalAmount: 1,
       address: req.session.address.address,
       addressName: req.session.address.name,
+      userID: req.session.userId,
     };
   
     const order = await Order.create(orderValues).fetch();

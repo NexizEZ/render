@@ -14,6 +14,10 @@ module.exports = {
         type: 'text',
         required: true
       },
+      userID: {
+        type: 'number',
+        required: true
+      },
       item: {
         collection: 'Item',
         via: 'order',
