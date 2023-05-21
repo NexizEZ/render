@@ -23,10 +23,21 @@ module.exports = {
 
     fn: async function (inputs) {
 
+        console.log("Update Quantity..")
+        console.log(inputs)
         
-        let item = inputs.item;
-        item.quantity = inputs.quantity;
-        this.req.session.basket.push(item);
+        
+        let sessionBasket = this.req.session.basket;
+        console.log(sessionBasket.find({ id: inputs.id }))
+
+        let itemToUpdate = sessionBasket.find(({ id: inputs.id }));
+
+        console.log(sessionBasket.find(({ id: inputs.id })))
+        if (itemToUpdate) {
+            // Update the quantity of the item
+            itemToUpdate.quantity = inputs.quantity;
+        }
+        this.req.session.basket = sessionBasket;
         return;
 
     }
