@@ -7,11 +7,11 @@ module.exports = {
         required: true
       },
       addressName: {
-        type: 'number',
+        type: 'text',
         required: true
       },      
       address: {
-        type: 'number',
+        type: 'text',
         required: true
       },
       item: {

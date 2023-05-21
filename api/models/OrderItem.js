@@ -4,7 +4,6 @@ module.exports = {
   attributes: {
     quantity: {
       type: 'number',
-      required: true
     },
     item: {
       model: 'item',

@@ -24,9 +24,7 @@ export default {
       <div class="h2">Bestellung</div>
 
       <ul class="list-group mb-4">                
-        <li class="list-group-item" v-for="item in basket">{{ item.name }}
-        <span :id="item.id" class="btn btn-primary button-17" @click="update">Adjust</span>
-        </li>
+        <li class="list-group-item" v-for="item in basket">{{ item.name }}</li>
       </ul>
 
       <div class="h2">Lieferdaten</div>
@@ -38,7 +36,7 @@ export default {
         </div>
         <div class="mt-4">
           <router-link class="btn btn-secondary mr-5" to="/address">Zurück</router-link>
-          <a class="btn btn-primary button-17" href="/order/new" ">Kostenpflichtig bestellen</a>
+          <router-link class="btn btn-primary" to="/confirmation">Kostenpflichtig bestellen</router-link>
         </div>
       </div>
       `,

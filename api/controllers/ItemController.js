@@ -76,13 +76,15 @@ module.exports = {
   commit: async function (req, res) {
 
     sails.log.debug("### creating order ###")
-    orderValues.addressName = address.name;
-    orderValues.address = address.address;
-    await Order.create({
-      "totalAmount": 1, 
+//    orderValues.addressName = address.name;
+//    orderValues.address = address.address;
+    let order = await Order.create({
+      "totalAmount": 1,
       "address": req.session.address.address,
       "addressName": req.session.address.name,
-    })
+    }).fetch();
+
+    
 
 
     let basket = req.session.basket
@@ -90,7 +92,7 @@ module.exports = {
     basket.forEach(Item => {
       itemarray.push(Item.id)
     });
-    await Order.addToCollection(order.id, 'items', itemarray)
+    await Order.addToCollection(order.id, 'item', itemarray)
 
     req.session.basket = [];
     req.session.order = null;

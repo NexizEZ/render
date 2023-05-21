@@ -19,6 +19,7 @@ export default {
       <ul class="list-group mb-4">
         <li class="list-group-item" v-for="item in basket">
           {{ item.name }} <br>
+
         </li>
       </ul>
       <router-link class="btn btn-secondary mr-5 button-17" to="/">Weiter einkaufen</router-link>
