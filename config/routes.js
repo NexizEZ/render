@@ -67,7 +67,7 @@ module.exports.routes = {
   'POST /item/:id/update': { controller: 'ItemController', action: 'updateOne' },
   'GET /item/:id/destroy': { controller: 'ItemController', action: 'destroyOne' },
 
-  'GET /order/new': { controller: 'ItemController', action: 'commit' },
+  'GET /order/new': { controller: 'OrderController', action: 'commit' },
 
   /***************************************************************************
   *                                                                          *

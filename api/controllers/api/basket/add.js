@@ -28,6 +28,8 @@ module.exports = {
             console.log("Create new basket..")
             this.req.session.basket = [];
         }
+        basket = this.req.session.basket
+
         item.quantity = 1;
         this.req.session.basket.push(item);
         return;

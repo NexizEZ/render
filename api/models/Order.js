@@ -14,7 +14,7 @@ module.exports = {
         type: 'text',
         required: true
       },
-      userID: {
+      userId: {
         type: 'number',
         required: true
       },
@@ -22,7 +22,11 @@ module.exports = {
         collection: 'Item',
         via: 'order',
         through: 'OrderItem'
-      }
+      },
+      user: {
+            collection: 'User',
+            via: 'order',
+        },
     }
   };
   

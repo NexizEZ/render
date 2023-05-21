@@ -72,30 +72,6 @@ module.exports = {
     let item = await Item.updateOne({ id: req.params.id }).set(req.body);
     res.redirect('/item');
   },
-
-  commit: async function (req, res) {
-    sails.log.debug("### creating order ###");
-  
-    const orderValues = {
-      totalAmount: 1,
-      address: req.session.address.address,
-      addressName: req.session.address.name,
-      userID: req.session.userId,
-    };
-  
-    const order = await Order.create(orderValues).fetch();
-  
-    const basket = req.session.basket;
-  
-    for (const item of basket) {
-        await Order.addToCollection(order.id, 'item').members([item.id]);
-    }
-  
-    req.session.basket = [];
-    req.session.order = null;
-  
-    res.redirect('/');
-  },
   
 
 };
