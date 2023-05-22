@@ -20,11 +20,19 @@
                             <input type="text" class="form-control" id="typ" name="typ" maxlength="40"
                                 placeholder="Typ des Produkts">
                         </div>
+                         <!--
+                        <div class="mb-3">
+                            <label for="picture" class="form-label">Bild</label>
+                            <input type="file" class="form-control" id="imageInput" name="picture">
+                            <img id="previewImage" src="#" alt="Vorschau des Bildes">
+                        </div>
+                        -->
                         <div class="mb-3">
                             <label for="picture" class="form-label">Bild</label>
                             <input type="text" class="form-control" id="picture" name="picture" maxlength="40"
                                 placeholder="URL zum Bild des Produkts">
                         </div>
+                        
                         <div class="mb-3">
                             <label for="price" class="form-label">Preis</label>
                             <div class="input-group">
@@ -71,3 +79,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const previewImage = document.getElementById('previewImage');
+
+    imageInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            previewImage.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+</script>

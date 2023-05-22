@@ -4,53 +4,147 @@
             <div class="col-md-6">
                 <div class="card shadow">
                     <div class="card-body">
-                        <h1 class="text-center mb-4">Create an Account</h1>
-                        <p class="text-center mb-4">Let's get started! Becoming a member is free and only takes a few
-                            minutes.</p>
+                        <h1 class="text-center mb-4">Account erstellent</h1>
+                        <p class="text-center mb-4">Lass uns anfangen! Die Mitgliedschaft ist kostenlos und dauert nur
+                            wenige Minuten.</p>
                         <hr />
                         <form action="signup" method="POST">
                             <div class="mb-3">
-                                <label for="full-name" class="form-label">Full Name</label>
+                                <label for="full-name" class="form-label">Vor- und Nachname</label>
                                 <input class="form-control" id="full-name" name="fullName" type="text"
-                                    placeholder="Sturgis P. Sturgeon" autocomplete="name" autofocus required>
-                                <div class="invalid-feedback">Please enter your full name.</div>
+                                    placeholder="Max" autocomplete="name" oninput="return validateName()" autofocus required>
+                                <div class="invalid-feedback" id="fullNameError">Bitte tragen Sie Ihren Vornamen ein.</div>
                             </div>
                             <div class="mb-3">
-                                <label for="email-address" class="form-label">Email Address</label>
+                                <label for="email-address" class="form-label">Email-Adresse</label>
                                 <input class="form-control" id="email-address" name="emailAddress" type="email"
-                                    placeholder="sturgeon@example.com" autocomplete="email" required>
-                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                                    placeholder="max.mustermann@beispiel.com" autocomplete="email" required>
+                                <div class="invalid-feedback" id="emailAddressError">Bitte geben Sie eine gültige
+                                    E-Mail-Adresse ein.</div>
                             </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Choose a Password</label>
-                                <input class="form-control" id="password" name="password" type="password"
+                            <div class="mb-3"  id="app">
+                                <label for="password" class="form-label">Wählen Sie ein Passwort</label>
+                                <div class="passwordCheck">
+                                    <p>Das Passwort muss mindestens 8 Zeichen lang sein und mind. einen Groß- und einen
+                                        Kleinbuchstaben, ein Sonderzeichen und eine Zahl enthalten.
+                                    </p>
+                                </div>
+                                <input class="form-control" id="password" name="password" type="password" v-model="password" @input="check"
                                     placeholder="••••••••" autocomplete="new-password" required>
-                                <div class="invalid-feedback">Please enter a password.</div>
+                                    <div class="mt-2">
+                                        <h7>Password Quality: {{ quality }}</h7>
+                                    </div>
+                                <div class="invalid-feedback" id="passwordError">Bitte geben Sie ein gültiges Passwort
+                                    ein.</div>
                             </div>
                             <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Confirm Password</label>
+                                <label for="confirm-password" class="form-label">Bestätigen Sie das Passwort</label>
                                 <input class="form-control" id="confirm-password" name="confirmPassword" type="password"
                                     placeholder="••••••••" autocomplete="new-password" required>
-                                <div class="invalid-feedback">Your password and confirmation do not match.</div>
+                                <div class="invalid-feedback" id="confirmPasswordError">Ihr Passwort und Ihre
+                                    Bestätigung stimmen nicht überein.</div>
                             </div>
                             <div class="form-check mb-3">
                                 <input class="form-check-input" id="terms-agreement" name="termsAgreement"
                                     type="checkbox" required>
-                                <label for="terms-agreement" class="form-check-label">I have read and agree to the <a
-                                        target="_blank" href="/terms">Terms of Service</a>.</label>
+                                    <label for="terms-agreement" class="form-check-label">Ich habe die <a target="_blank"
+                                        href="/terms">Nutzungsbedingungen</a> gelesen und stimme ihnen zu .</label>
                             </div>
+                             <!--
                             <span class="text-danger">It looks like there's already an account with your email address.
                                 If you
                                 forgot your password, you can recover it <a href="password/forgot">here</a>.</span>
+                                -->
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-dark btn-lg btn-block">Create Account</button>
+                                <button type="submit" class="btn btn-primary btn-lg button-17">Account erstellen</button>
                             </div>
                         </form>
-                        <p class="text-center">Already have an account? <a href="/login">Sign In</a></p>
+                        <p class="text-center">Sie haben bereits ein Konto? <a href="/login">Sign In</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function validateName() {
+        var nameInput = document.getElementById("full-name");
+        var name = nameInput.value;
+
+        if (name.length < 3) {
+            nameInput.setCustomValidity("Geben Sie bitte Ihren vollständigen Name ein!");
+        } else {
+            nameInput.setCustomValidity("");
+        }
+    }
+
+    const { createApp } = Vue
+    createApp({
+        data() {
+            return {
+                password: "",
+                quality: "Bad",
+            }
+        },
+        methods: {
+            check: function () {
+                if (this.password.length > 7) {
+                    this.quality = "Good";
+                } else {
+                    this.quality = "Bad";
+                }
+            },
+            reset: function () {
+                this.password = "";
+                this.quality = "Bad";
+            }
+        }
+    }).mount("#app")
+
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const passwordError = document.getElementById('passwordError');
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
+    const form = document.querySelector('form');
+
+    function validatePassword() {
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        // Passwort Validierung
+        const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()])[a-zA-Z\d!@#$%^&*()]{8,}$/;
+        const isPasswordValid = passwordPattern.test(password);
+        passwordError.style.display = isPasswordValid ? 'none' : 'block';
+
+        // Passwortbestätigung Validierung
+        const isPasswordMatch = password === confirmPassword;
+        confirmPasswordError.style.display = isPasswordMatch ? 'none' : 'block';
+
+        return isPasswordValid && isPasswordMatch;
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+        const isFormValid = validatePassword();
+
+        if (isFormValid) {
+            form.submit();
+        }
+    }
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    }
+
+    passwordInput.addEventListener('input', validatePassword);
+    confirmPasswordInput.addEventListener('input', validatePassword);
+    form.addEventListener('submit', submitForm);
+</script>
+
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
