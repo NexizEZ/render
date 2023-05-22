@@ -113,6 +113,10 @@ footer {
     color: #3c4043;
 }
 
+.passwordCheck{
+    font-size: 12px;
+}
+
 .bakeryname {
     font-size: 22px;
     font-weight: 700;
