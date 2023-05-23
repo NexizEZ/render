@@ -25,6 +25,7 @@ module.exports = {
             "totalAmount": 1,
             "address": req.session.address.address,
             "addressName": req.session.address.name,
+            
         })
 
 

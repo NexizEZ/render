@@ -1,33 +1,54 @@
-    <div class="container my-5">
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <h2 class="mb-4">Personal information</h2>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <a class="btn btn-outline-primary button-17" href="/account/profile">Edit profile</a>
-            </div>
+<div class="container my-5" id="app">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <h2 class="mb-4">Personal information</h2>
         </div>
-        <div class="row mb-3">
-            <div class="col-4 col-md-3">Name:</div>
-            <div class="col"><strong><%= req.me.fullName %></strong></div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-4 col-md-3">Email:</div>
-            <div class="col"><strong><%= req.me.emailAddress %></strong></div>
-        </div>
-        <hr>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <h2 class="mb-4">Password</h2>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <a class="btn btn-outline-primary button-17" href="/account/password">Change password</a>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-4 col-md-3">Password:</div>
-            <div class="col"><strong>••••••••••</strong></div>
+        <div class="col-md-6 text-md-end">
+            <a class="btn btn-outline-primary button-17" href="/account/profile">Edit profile</a>
         </div>
     </div>
+    <div class="row mb-3">
+        <div class="col-4 col-md-3">Name:</div>
+        <div class="col"><strong>
+                <%= req.me.fullName %>
+            </strong></div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-4 col-md-3">Email:</div>
+        <div class="col"><strong>
+                <%= req.me.emailAddress %>
+            </strong></div>
+    </div>
+    <hr>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <h2 class="mb-4">Password</h2>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <a class="btn btn-outline-primary button-17" href="/account/password">Change password</a>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-4 col-md-3">Password:</div>
+        <div class="col"><strong>••••••••••</strong></div>
+    </div>
+    <hr>
+    <div>
+        <div class="container">
+            <div class="h2">Bestellungen</div>
+            <ul class="list-group mb-4">
+                <li class="list-group-item" v-for="order in orders">
+                    {{ order.id }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-    <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
+
+    <script type="module">
+        import orderApp from './vue/orders.js'
+        const { createApp } = Vue
+        createApp(orderApp).mount("#app")
+    </script>

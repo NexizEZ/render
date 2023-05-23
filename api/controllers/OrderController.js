@@ -9,7 +9,22 @@ const Sails = require("sails/lib/app/Sails");
 
 module.exports = {
 
-    commit: async function (req, res) {
+    indexAction: async function (req, res) {
+        sails.log.debug("### List all Orders of User ###");
+      
+        try {
+          const orders = await Order.find({
+            userId: req.session.userId
+          }).populate("item");
+      
+          return res.ok(orders);
+        } catch (error) {
+          sails.log.error(error);
+          return res.serverError("An error occurred while fetching orders.");
+        }
+      },
+
+      commit: async function (req, res) {
         sails.log.debug("### creating order  ###");
 
         const orderValues = {
@@ -33,26 +48,21 @@ module.exports = {
         res.redirect('/');
     },
 
-    indexAction: async function (req, res) {
-
-        sails.log.debug("### List all Orders ###")
-        let orders;
-
-        if (req.query.q && req.query.q.length > 0) {
-            items = await Item.find({
-                name: {
-                    'contains': req.query.q
-                }
-            })
-
-            categories = await Category.find();
-        } else {
-            orders = await Order.find().populate("category");
-            categories = await Category.find();
+    deleteOrder: async function (inputs) {
+        sails.log.debug("### deleting entry ###");
+      
+        const orderId = inputs.orderId; // Assuming the order ID is passed as a parameter
+      
+        const order = await Order.findOne({ id: orderId }).populate('item');
+      
+        if (!order) {
+          return res.notFound(`Order with ID ${orderId} not found.`);
         }
-        res.view('pages/account/storno', {
-            items: items,
-            categories,
-        });
-    },
+      
+        // Remove the item from the order's item collection
+        await Order.removeFromCollection(orderId, 'item').members([itemId]);
+      
+        res.ok(`Item with ID ${itemId} has been logically deleted from the order.`);
+      }
+      
 };

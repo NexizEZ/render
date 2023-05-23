@@ -68,6 +68,7 @@ module.exports.routes = {
   'GET /item/:id/destroy': { controller: 'ItemController', action: 'destroyOne' },
 
   'GET /order/new': { controller: 'OrderController', action: 'commit' },
+  'GET /api/order': { controller: 'OrderController', action: 'indexAction' },
 
   /***************************************************************************
   *                                                                          *
