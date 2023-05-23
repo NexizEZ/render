@@ -11,6 +11,16 @@ export default {
           .then(data => this.orders = data);
       },
       methods: {
-    
+        storno: function (id) {
+            let url = new URL(origin + "/api/deleteorder");
+            let data = new FormData();
+            data.append("id", id);
+            fetch(url, {
+              method: "POST",
+              body: data,
+            }).then((result) => {
+              
+            });
+          },
       },
 }

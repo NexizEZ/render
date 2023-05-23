@@ -69,6 +69,7 @@ module.exports.routes = {
 
   'GET /order/new': { controller: 'OrderController', action: 'commit' },
   'GET /api/order': { controller: 'OrderController', action: 'indexAction' },
+  'POST /api/deleteorder': { controller: 'OrderController', action: 'deleteOrder' },
 
   /***************************************************************************
   *                                                                          *

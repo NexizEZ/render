@@ -9,60 +9,66 @@ const Sails = require("sails/lib/app/Sails");
 
 module.exports = {
 
-    indexAction: async function (req, res) {
-        sails.log.debug("### List all Orders of User ###");
-      
-        try {
-          const orders = await Order.find({
-            userId: req.session.userId
-          }).populate("item");
-      
-          return res.ok(orders);
-        } catch (error) {
-          sails.log.error(error);
-          return res.serverError("An error occurred while fetching orders.");
-        }
-      },
+  indexAction: async function (req, res) {
+    sails.log.debug("### List all Orders of User ###");
 
-      commit: async function (req, res) {
-        sails.log.debug("### creating order  ###");
+    try {
+      const orders = await Order.find({
+        userId: req.session.userId
+      }).populate("item");
 
-        const orderValues = {
-            totalAmount: 1,
-            address: req.session.address.address,
-            addressName: req.session.address.name,
-            userId: req.session.userId,
-        };
+      return res.ok(orders);
+    } catch (error) {
+      sails.log.error(error);
+      return res.serverError("An error occurred while fetching orders.");
+    }
+  },
 
-        const order = await Order.create(orderValues).fetch();
+  commit: async function (req, res) {
+    sails.log.debug("### creating order  ###");
 
-        const basket = req.session.basket;
+    const orderValues = {
+      totalAmount: 1,
+      address: req.session.address.address,
+      addressName: req.session.address.name,
+      userId: req.session.userId,
+    };
 
-        for (const item of basket) {
-            await Order.addToCollection(order.id, 'item').members([item.id]);
-        }
+    const order = await Order.create(orderValues).fetch();
 
-        req.session.basket = [];
-        req.session.order = null;
+    const basket = req.session.basket;
 
-        res.redirect('/');
-    },
+    for (const item of basket) {
+      await Order.addToCollection(order.id, 'item').members([item.id]);
+    }
 
-    deleteOrder: async function (inputs) {
-        sails.log.debug("### deleting entry ###");
-      
-        const orderId = inputs.orderId; // Assuming the order ID is passed as a parameter
-      
-        const order = await Order.findOne({ id: orderId }).populate('item');
-      
-        if (!order) {
-          return res.notFound(`Order with ID ${orderId} not found.`);
-        }
-      
-        // Remove the item from the order's item collection
-        await Order.removeFromCollection(orderId, 'item').members([itemId]);
-      
-        res.ok(`Item with ID ${itemId} has been logically deleted from the order.`);
-      }
-      
+    req.session.basket = [];
+    req.session.order = null;
+
+    res.redirect('/');
+  },
+
+  deleteOrder: async function (inputs) {
+    sails.log.debug("### deleting order ###");
+
+    sails.log.debug(inputs.body.id);
+    let orderId = inputs.body.id;
+
+    let order = await Order.findOne({ id: orderId }).populate('item');
+    sails.log.debug(order);
+    if (!order) {
+      return res.notFound(`Order with ID ${orderId} not found.`);
+    }
+
+    // Remove the item from the order's item collection
+
+    for (let item of order.item) {
+      await Order.removeFromCollection(order.id, 'item').members([item.id]);
+    }
+    await Order.destroyOne({ id: order.id });
+
+    sails.log.debug("### order deleting ###");
+    return res.redirect('/account');
+  }
+
 };

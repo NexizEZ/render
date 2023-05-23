@@ -33,15 +33,19 @@
         <div class="col"><strong>••••••••••</strong></div>
     </div>
     <hr>
-    <div>
-        <div class="container">
-            <div class="h2">Bestellungen</div>
-            <ul class="list-group mb-4">
-                <li class="list-group-item" v-for="order in orders">
+
+    <div class="container">
+        <div class="h2">Bestellungen</div>
+        <ul class="list-group mb-4">
+            <li class="list-group-item" v-for="order in orders">
+                <div class="col-md-6">
                     {{ order.id }}
-                </li>
-            </ul>
-        </div>
+                </div>
+                <div class="col-md-6">
+                    <button @click="storno(order.id)">Call Function</button>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
