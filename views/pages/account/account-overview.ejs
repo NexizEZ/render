@@ -37,6 +37,10 @@
     <div class="container">
         <div class="h2">Bestellungen</div>
         <ul class="list-group mb-4">
+            <div v-if="alterVisible">
+                This is an alert!
+                <button @click="hideAlert">Close</button>
+            </div>
             <li class="list-group-item" v-for="order in orders">
                 <div class="col-md-6">
                     {{ order.id }}

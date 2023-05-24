@@ -56,9 +56,7 @@ module.exports = {
 
     let order = await Order.findOne({ id: orderId }).populate('item');
     sails.log.debug(order);
-    if (!order) {
-      return res.notFound(`Order with ID ${orderId} not found.`);
-    }
+
 
     // Remove the item from the order's item collection
 
@@ -68,7 +66,7 @@ module.exports = {
     await Order.destroyOne({ id: order.id });
 
     sails.log.debug("### order deleting ###");
-    return res.redirect('/account');
+    return response;
   }
 
 };
