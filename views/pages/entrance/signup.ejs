@@ -8,21 +8,21 @@
                         <p class="text-center mb-4">Lass uns anfangen! Die Mitgliedschaft ist kostenlos und dauert nur
                             wenige Minuten.</p>
                         <hr />
-                        <form action="signup" method="POST">
+                        <form action="signup" method="POST" name="signUp">
                             <div class="mb-3">
                                 <label for="full-name" class="form-label">Vor- und Nachname</label>
                                 <input class="form-control" id="full-name" name="fullName" type="text"
-                                    placeholder="Max" autocomplete="name" oninput="return validateName()" autofocus required>
+                                    placeholder="Max Mustermann" autocomplete="name" oninput="return validateName()" autofocus required>
                                 <div class="invalid-feedback" id="fullNameError">Bitte tragen Sie Ihren Vornamen ein.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="email-address" class="form-label">Email-Adresse</label>
                                 <input class="form-control" id="email-address" name="emailAddress" type="email"
-                                    placeholder="max.mustermann@beispiel.com" autocomplete="email" required>
+                                    placeholder="max.mustermann@beispiel.com" onchange="return validateEmail()" autocomplete="email" required>
                                 <div class="invalid-feedback" id="emailAddressError">Bitte geben Sie eine gültige
                                     E-Mail-Adresse ein.</div>
                             </div>
-                            <div class="mb-3"  id="app">
+                            <div class="mb-3" id="app">
                                 <label for="password" class="form-label">Wählen Sie ein Passwort</label>
                                 <div class="passwordCheck">
                                     <p>Das Passwort muss mindestens 8 Zeichen lang sein und mind. einen Groß- und einen
@@ -72,10 +72,27 @@
         var nameInput = document.getElementById("full-name");
         var name = nameInput.value;
 
-        if (name.length < 3) {
-            nameInput.setCustomValidity("Geben Sie bitte Ihren vollständigen Name ein!");
+        if (name.length < 5) {
+            nameInput.setCustomValidity("Geben Sie bitte Ihren vollständigen Namen ein!");
         } else {
             nameInput.setCustomValidity("");
+        }
+    }
+
+    function validateEmail() {
+        var form = document.signUp;
+        var message = '';
+
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.emailAddress.value)) {
+            message += 'Geben Sie bitte eine gültige Email-Adresse ein! Beispiel: max.mustermann@beispiel.com';
+            form.emailAddress.focus();
+        }
+
+        if (message === '') {
+            return true;
+        } else {
+            alert(message); // Zeige eine Fehlermeldung an
+            return false; // Das Formular kann nicht abgesendet werden
         }
     }
 

@@ -3,7 +3,7 @@
         <h1 class="text-center mb-5">Melden Sie sich bei Ihrem Konto an</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="login" method="POST" class="needs-validation">
+                <form action="login" method="POST" id="loginForm" class="needs-validation">
                     <div class="form-group mb-4">
                         <label for="emailAddress" class="form-label">Email-Adresse:</label>
                         <input type="email" name="emailAddress" class="form-control" id="emailAddress"
@@ -21,18 +21,52 @@
                         <input class="form-check-input" type="checkbox" id="remember" name="rememberMe">
                         <label class="form-check-label" for="remember">Remember me</label>
                     </div>
-                     <div class="mb-3 text-danger">The credentials you entered are not associated with an account. Please
-                        check your email and/or password and try again.</div> -->
+                     <div class="mb-3 text-danger"><span>Die von Ihnen eingegebenen Anmeldeinformationen sind keinem Konto zugeordnet. Bitte
+                            überprüfen Sie Ihre E-Mails und/oder Geben Sie Ihr Passwort ein und versuchen Sie es erneut.</span></div> -->
                     <div class="d-grid gap-2 mb-4">
                         <button type="submit" class="btn btn-primary btn-lg button-17">Sign in</button>
                         <a href="/signup" class="btn btn-secondary btn-lg button-17">Registrieren</a>
                     </div>
                 </form>
-                <!--
-                <p class="text-center"><a href="/password/forgot">Forgot your password?</a></p>
-                -->
+                <div id="errorMessage" style="color: red; display: none;"></div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+        var email = document.getElementById('emailAddress').value;
+        var password = document.getElementById('password').value;
+        var errorMessage = document.getElementById('errorMessage');
+
+        fetch('/api/controllers/entrance/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ emailAddress: email, password: password })
+        })
+            .then(function (response) {
+                if (response.ok) {
+                    // Anmeldung erfolgreich
+                    return response.json();
+                } else {
+                    // Fehler beim Anmelden
+                    return response.text().then(function (errorText) {
+                        throw new Error(errorText);
+                    });
+                }
+            })
+            .then(function (data) {
+                // Weiterleitung oder weitere Verarbeitung der Daten nach erfolgreicher Anmeldung
+                window.location.href = '/views/pages/homepage.ejs';
+            })
+            .catch(function (error) {
+                console.error('Ein Fehler ist aufgetreten', error);
+                errorMessage.textContent = 'Das von Ihnen eingegebene Passwort ist falsch oder es gibt kein Konto mit der von Ihnen angegebenen E-Mail-Adresse. Bitte überprüfen Sie Ihre E-Mail-Adresse und geben Sie Ihr Passwort erneut ein.';
+                errorMessage.style.display = 'block';
+            });
+    });
+</script>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
