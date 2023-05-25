@@ -35,6 +35,9 @@ export default {
   <div class="container-fluid">
   <div class="row">
     <div class="container-fluid">
+    <div class="alert alert-primary">
+    <p> Diese Suche funktioniert gerade nur auf der Router /item mit isSuperAdmin Rechte und muss für die finale Abgabe noch in VUE Logik übertragen werden -> </p>
+     </div>
       <div class="searchform col-sm-0 d-flex justify-content-end text-center">
         <form action="/search" method="get" class="searchForm searchForm">
           <div class="fixbar input-group">

@@ -110,13 +110,13 @@
                 </li>
                 <% if(req.me) { %>
                   <li>
-                    <a class="nav-link float-end" href="/logout" role="button" aria-expanded="false">
-                      Logout
+                    <a class="nav-link float-end" href="/account" role="button" aria-expanded="false">
+                      Account
                     </a>
                   </li>
                   <li>
-                    <a class="nav-link float-end" href="/account" role="button" aria-expanded="false">
-                      <% req.me.userId %>
+                    <a class="nav-link float-end" href="/logout" role="button" aria-expanded="false">
+                      Logout
                     </a>
                   </li>
                   <% } else { %>
@@ -126,6 +126,20 @@
                       </a>
                     </li>
                     <% } %>
+                      <% if (req.me && req.me.isSuperAdmin) { %>
+                        <li>
+                          <div class="dropdown">
+                            <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              Mittarbeitertools
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="/item">Edit Items</a></li>
+                              <li><a class="dropdown-item" href="/category">Edit Categories</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <% } %>
           </ul>
         </div>
       </div>
