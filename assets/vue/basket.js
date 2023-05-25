@@ -29,8 +29,8 @@ export default {
   template: `
   <div class="container">
   <h1 class="mt-4">Einkaufskorb</h1>
-  
-  <ul class="list-group my-4" v-if=active v-for="item in basket">
+
+  <ul class="list-group my-4" v-if="active" v-for="item in basket">
     <li class="list-group-item">
       <div class="d-flex justify-content-between">
         <span>{{ item.name }}</span>
@@ -40,12 +40,11 @@ export default {
     <hr>
   </ul>
 
-  <div class="d-flex justify-content-end">
-    <button @click="remove" class="btn btn-primary me-3 button-17"> Einkaufskorb leeren </button>
-    <router-link class="btn btn-secondary me-3 button-17" to="/">Weiter einkaufen</router-link>
+  <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-center">
+    <button @click="remove" class="btn btn-primary me-3 button-17 mb-3 mb-md-0"> Einkaufskorb leeren </button>
+    <router-link class="btn btn-secondary me-3 button-17 mb-3 mb-md-0" to="/">Weiter einkaufen</router-link>
     <router-link class="btn btn-primary button-17" to="/address">Bestellung abschließen</router-link>
   </div>
 </div>
-
   `,
 };
