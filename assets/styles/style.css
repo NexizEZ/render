@@ -117,6 +117,11 @@ a:hover {
     font-weight: bold;
 }
 
+.error-message {
+    color: rgb(214, 32, 32);
+  }
+
+
 .main-container {
     /*    background-color: #edf5f4; */
     color: black;
