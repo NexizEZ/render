@@ -28,8 +28,18 @@ export default {
   <h2 class="mt-4">Bestellung</h2>
 
   <ul class="list-group mb-4">
-    <li class="list-group-item" v-for="item in basket">{{ item.name }}</li>
+    <li class="list-group-item" v-for="item in basket">
+    <div>
+    {{ item.name }}
+    </div>
+    <div style="float:right;">
+    € {{ item.price }}
+    </div
+    </li>
   </ul>
+  <div class="h4" style="float:right;">
+  Gesamtpreis: € {{ pricetotal }}
+</div>
 
   <h2 class="mt-4">Lieferdaten</h2>
   <div class="h4">
@@ -38,11 +48,8 @@ export default {
   <div class="h4">
     Adresse: {{ address }}
   </div>
-  <div class="h4">
-    Gesamtpreis: € {{ pricetotal }}
-  </div>
 
-  <div class="d-flex justify-content-end mt-4">
+  <div class="d-flex justify-content-end">
     <router-link class="btn btn-secondary me-3 button-17" to="/address">Zurück</router-link>
     <router-link class="btn btn-primary button-17" to="/confirmation">Kostenpflichtig bestellen</router-link>
   </div>

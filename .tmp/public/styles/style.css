@@ -32,7 +32,11 @@ h3 {
   .card-link:hover .card-img {
     transform: scale(1.1);
   }
-  
+
+  .col-md-4 {
+    padding: 15px;
+  }
+
   .card-caption {
     position: absolute;
     background-color: #F5DEB3;

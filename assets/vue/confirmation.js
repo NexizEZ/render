@@ -10,8 +10,10 @@ export default {
   
     },
   template: `
-    <div class="container h2 my-10">
+    <div class="container h2 my-10 d-flex justify-content-center" style="height: 500px;">
+    <div class="d-flex justify-content-center">
       Bestellung erfolgreich.
+      </div>
     </div>
       `,
 };

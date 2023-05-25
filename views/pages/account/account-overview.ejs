@@ -37,16 +37,25 @@
     <div class="container">
         <div class="h2">Bestellungen</div>
         <ul class="list-group mb-4">
-            <div v-if="alterVisible">
-                This is an alert!
-                <button @click="hideAlert">Close</button>
+            <div v-if="alterVisible" class="alert alert-primary">
+                Bestellung stoniert!
             </div>
             <li class="list-group-item" v-for="order in orders">
                 <div class="col-md-6">
-                    {{ order.id }}
+                    Bestellung: {{ order.id }}
                 </div>
+                <ul>
+                    <div v-for="item in order.item">
+                        <li>
+                            <div class="d-flex justify-content-between">
+                                <span>{{ item.name }} €</span>
+                                <span>{{ item.price }} €</span>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
                 <div class="col-md-6">
-                    <button @click="storno(order.id)">Call Function</button>
+                    <button class="button-17" @click="storno(order.id)">Stonieren</button>
                 </div>
             </li>
         </ul>

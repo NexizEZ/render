@@ -77,7 +77,7 @@ export default {
   </div>
 
   <div class="row row-cols-1 row-cols-md-4 g-4">
-  <div class="col-12 col-md-4" v-for="item in items">
+  <div class="col-12 col-md-4" style="padding: 18px" v-for="item in items">
     <div class="card card2">
       <span :id=item.id class="card-link" @click="order(item.id)">
       <img src="/images/croissants.jpg" alt="Image 2" class="card-img">
