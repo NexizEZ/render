@@ -22,10 +22,7 @@ module.exports.policies = {
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
   'account/logout': true,
-
-//  MenuController: {
-//    '*': true,
-//  },
+  'item/overview' : true,
 
   ItemController: {
     'new': 'is-super-admin',
@@ -35,6 +32,7 @@ module.exports.policies = {
     'updateOne': 'is-super-admin',
     'indexAction': true,
     'findOne': true,
+    'overviewAction': true,
   },
   CategoryController: {
     '*': 'is-super-admin',
