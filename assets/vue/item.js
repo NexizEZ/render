@@ -76,7 +76,7 @@ export default {
     </div>
   </div>
   <div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="col-3" v-for="item in items">
+    <div class="col-12 col-md-4" v-for="item in items">
       <div class="card">
         <img src="images/croissants.jpg" class="card-img-top" alt="Product Image">
         <div class="card-body">
@@ -105,9 +105,7 @@ export default {
       </div>
     </div>
   </div>
-  <router-link class="btn btn-primary" to="/basket">To Shopping Basket</router-link>
 </div>
-
 `,
 
 };

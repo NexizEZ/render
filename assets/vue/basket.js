@@ -15,20 +15,24 @@ export default {
 
   },
   template: `
-    <h1>Einkaufskorb</h1>
-    <div class="mx-4">
-      <ul class="list-group mb-4">
-        <li class="list-group-item" v-for="item in basket">
-          {{ item.name }}
-          <br></br>
-          € {{ item.price }}
-        </li>
-      </ul>
+  <div class="container">
+  <h1 class="mt-4">Einkaufskorb</h1>
+  
+  <ul class="list-group my-4" v-for="item in basket">
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between">
+        <span>{{ item.name }}</span>
+        <span>€ {{ item.price }}</span>
+      </div>
+    </li>
+    <hr>
+  </ul>
 
+  <div class="d-flex justify-content-end">
+    <router-link class="btn btn-secondary me-3 button-17" to="/">Weiter einkaufen</router-link>
+    <router-link class="btn btn-primary button-17" to="/address">Bestellung abschließen</router-link>
+  </div>
+</div>
 
-
-      <router-link class="btn btn-secondary mr-5 button-17" to="/">Weiter einkaufen</router-link>
-      <router-link class="btn btn-primary button-17" to="/address">Bestellung abschliessen</router-link>
-    </div>
   `,
 };

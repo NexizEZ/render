@@ -11,6 +11,10 @@ h3 {
     position: static !important;
 }
 
+.bodyheight {
+    height: 60vh;
+}
+
 body {
     color: #030506;
     background-color: #ffffff;

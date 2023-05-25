@@ -20,23 +20,29 @@ export default {
       }
     },  
     template: `
+    <div class="bodyheight d-flex align-items-center">
     <div class="container">
-      <h1>Lieferdaten</h1>
-      <form>
-        <div>
-            <div class="form-group">
-                <label class="col-form-label-lg">Name</label>
-                <input type="text" class="form-control" maxlength="80" v-model="name">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label-lg">Adresse</label>
-                <input type="text" class="form-control" maxlength="120" v-model="address">
-            </div>
+    <h1 class="mt-4">Lieferdaten</h1>
+    
+    <form>
+      <div class="mt-4">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" maxlength="80" v-model="name">
         </div>
-      </form>
-      <router-link class="btn btn-secondary mr-5 " to="/">Weiter einkaufen</router-link>
-      <span class="btn btn-primary" @click="submitAddress">Bestellen</span>
+        <div class="mb-3">
+          <label class="form-label">Adresse</label>
+          <input type="text" class="form-control" maxlength="120" v-model="address">
+        </div>
       </div>
+    </form>
+    
+    <div class="d-flex justify-content-end">
+      <router-link class="btn btn-secondary me-3 button-17" to="/">Weiter einkaufen</router-link>
+      <button class="btn btn-primary button-17" @click="submitAddress">Bestellen</button>
+    </div>
+  </div>
+  </div>
       `,
   };
   
