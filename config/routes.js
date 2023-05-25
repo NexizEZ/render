@@ -81,6 +81,7 @@ module.exports.routes = {
   'GET /basket': { action: 'view-basket' },
   
   'GET /api/items': { action: 'api/items/index'},
+  'GET /api/search': { controller: 'SearchController', action: 'vueSearchItems' },
 
   'GET /api/basket': {  action:'api/basket/get' },
   'POST /api/basket': {  action:'api/basket/add' },
