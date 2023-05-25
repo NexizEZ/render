@@ -62,6 +62,7 @@ module.exports = {
     res.view('pages/item/overview', {
       items: items,
       categories,
+      req,
     });
   },
 
