@@ -43,6 +43,28 @@ module.exports = {
     });
   },
 
+  overviewAction: async function (req, res) {
+    sails.log.debug("### List all items ###")
+    let items;
+    let categories
+
+    if (req.query.q && req.query.q.length > 0) {
+      items = await Item.find({
+        name: {
+          'contains': req.query.q
+        }
+      })
+      categories = await Category.find();
+    } else {
+      items = await Item.find().populate("category");
+      categories = await Category.find();
+    }
+    res.view('pages/item/overview', {
+      items: items,
+      categories,
+    });
+  },
+
   findOne: async function (req, res) {
     sails.log.debug("### List single item ###")
     let item = await Item.findOne({ id: req.params.id }).populate('category');

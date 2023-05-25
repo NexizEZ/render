@@ -60,6 +60,7 @@ module.exports.routes = {
   'POST /item': { controller: 'ItemController', action: 'create' },
   'GET /item': { controller: 'ItemController', action: 'indexAction' },
   'GET /item/show': { controller: 'ItemController', action: 'findOne' },
+  'GET /item/overview': { controller: 'ItemController', action: 'overviewAction' },
 
   'GET /search': { controller: 'SearchController', action: 'searchItems' },
 

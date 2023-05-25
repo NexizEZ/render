@@ -12,10 +12,10 @@ export default {
       .then((data) => (this.items = data));
   },
   methods: {
-    order: function (event) {
+    order: function (id) {
       let url = new URL(origin + "/api/basket");
       let data = new FormData();
-      data.append("id", event.target.id);
+      data.append("id", id);
       fetch(url, {
         method: "POST",
         body: data,
@@ -75,37 +75,25 @@ export default {
       </div>
     </div>
   </div>
+
   <div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="col-12 col-md-4" v-for="item in items">
-      <div class="card">
-        <img src="images/croissants.jpg" class="card-img-top" alt="Product Image">
-        <div class="card-body">
-          <h5 class="card-title">
-            {{ item.name }}
-          </h5>
-          <p class="card-text">
-            {{ item.description }}
-          </p>
-          <h5 class="card-item-price">
-            € {{ item.price }}
-          </h5>
-          <div class="nav-card-container">
-            <div class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                aria-expanded="false">Weitere Optionen</a>
-              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <li>
-                  <a class="dropdown-item" :href="'/item/' + item.id">Produkt anzeigen</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <span :id="item.id" class="ml-2 btn btn-outline-primary button-17" @click="order">Bestellen</span>
-      </div>
+  <div class="col-12 col-md-4" v-for="item in items">
+    <div class="card card2">
+      <span :id=item.id class="card-link" @click="order(item.id)">
+      <img src="/images/croissants.jpg" alt="Image 2" class="card-img">
+
+        <a class="card-caption card-caption-bottom-left" :href="'/item/' + item.id">
+        {{ item.name }}
+      </a>
+
+      <span class="card-caption card-caption-bottom-right">
+        € {{ item.price }}
+      </span>
     </div>
   </div>
 </div>
+
+
 `,
 
 };

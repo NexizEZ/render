@@ -1,0 +1,19 @@
+<div class="item-container">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <% items.forEach(function(item){ %>
+            <div class="col-12 col-md-4">
+                <div class="card card2">
+                    <a href="/item/<%= item.id %>" class="card-link">
+                        <img src="/images/croissants.jpg" alt="Image 2" class="card-img">
+                        <span class="card-caption card-caption-bottom-left">
+                            <%= item.name %>
+                        </span>
+                        <span class="card-caption card-caption-bottom-right">
+                            <%= item.price %> €
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <% }); %>
+    </div>
+</div>
