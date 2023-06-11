@@ -11,17 +11,28 @@
                     <form action="/item/<%=item.id%>/update" method="post" class="mt-4">
                         <div class="form-group mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" maxlength="80" value="<%= item.name %>" name="name" required>
+                            <input type="text" class="form-control" maxlength="80" value="<%= item.name %>" name="name"
+                                required>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Beschreibung</label>
-                            <textarea maxlength="255" class="form-control" rows="3"
-                                name="description" required><%= item.description %></textarea>
+                            <textarea maxlength="255" class="form-control" rows="3" name="description"
+                                required><%= item.description %></textarea>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Bild</label>
-                            <input type="text" maxlength="255" class="form-control" value="<%= item.picture %>"
-                                name="picture">
+                            <div class="container">
+                                <form action="/item/<%=item.id%>/uploadImage" method="post"
+                                    enctype="multipart/form-data">
+                                    <div>
+                                        <div class="form-group mb-3">
+                                            <label class="col-form-label-lg">Bild für <%= item.name%></label>
+                                            <input type="file" class="form-control" name="image">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="green-button mt-4">Speichern</button>
+                                </form>
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Preis</label>

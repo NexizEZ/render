@@ -68,6 +68,9 @@ module.exports.routes = {
   'POST /item/:id/update': { controller: 'ItemController', action: 'updateOne' },
   'GET /item/:id/destroy': { controller: 'ItemController', action: 'destroyOne' },
 
+  'GET /item/:id/uploadImageForm': { controller: 'ImageController', action: 'uploadImageForm' },
+  'POST /item/:id/uploadImage': { controller: 'ImageController', action: 'uploadImage' },
+
   'GET /order/new': { controller: 'OrderController', action: 'commit' },
   'GET /api/order': { controller: 'OrderController', action: 'indexAction' },
   'POST /api/deleteorder': { controller: 'OrderController', action: 'deleteOrder' },
@@ -82,7 +85,7 @@ module.exports.routes = {
   'GET /basket': { action: 'view-basket' },
   
   'GET /api/items': { action: 'api/items/index'},
-  'GET /api/search': { controller: 'SearchController', action: 'vueSearchItems' },
+  'POST /api/search': { controller: 'SearchController', action: 'vueSearchItems' },
 
   'GET /api/basket': {  action:'api/basket/get' },
   'POST /api/basket': {  action:'api/basket/add' },

@@ -19,8 +19,16 @@ module.exports = {
   
     fn: async function (inputs) {
   
-      return items = await Item.find().populate("category");
+      let items = await Item.find().populate("category");
+      let categories = await Category.find();
   
+      let result = {
+        items,
+        categories
+    }
+
+    console.log("result")
+    return result;
       
   
     }

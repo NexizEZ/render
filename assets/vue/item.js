@@ -2,14 +2,21 @@ export default {
   data() {
     return {
       items: [],
+      itemsbackup: [],
       om: "",
+      categories: [],
+      choosecategory: "",
+      price_von: "",
+      price_bis: "",
+      searchterm: "",
     };
   },
   created() {
     let url = new URL(origin + "/api/items");
     fetch(url)
       .then((res) => res.json())
-      .then((data) => (this.items = data));
+      .then((data) => (this.items = data.items,
+        this.categories = data.categories));
   },
   methods: {
     order: function (id) {
@@ -24,10 +31,27 @@ export default {
       });
     },
     refreshItems: function (event) {
-      let url = new URL(origin + "/api/search");
-      fetch(url)
-      .then((res) => res.json())
-      .then((data) => (this.items = data));
+      let filteredItems = this.items;
+      this.itemsbackup = this.items;
+
+      if (this.choosecategory == "" && this.price_von == "" && this.price_bis == "" && this.searchterm == "") {
+        this.items = this.itemsbackup;
+      } else {
+        if (this.choosecategory !== "") {
+          filteredItems = filteredItems.filter(item => item.category === this.choosecategory);
+        }
+        if (this.price_von !== "") {
+          filteredItems = filteredItems.filter(item => item.price >= this.price_von);
+        }
+        if (this.price_bis !== "") {
+          filteredItems = filteredItems.filter(item => item.price <= this.price_bis);
+        }
+        if (this.searchterm !== "") {
+          filteredItems = filteredItems.filter(item => item.name.toLowerCase().includes(this.searchterm.toLowerCase()));
+        }
+      
+        this.items = filteredItems;
+      }
     },
 
   },
@@ -35,13 +59,10 @@ export default {
   <div class="container-fluid">
   <div class="row">
     <div class="container-fluid">
-    <div class="alert alert-primary">
-    <p> Diese Suche funktioniert gerade nur auf der Router /item mit isSuperAdmin Rechte und muss für die finale Abgabe noch in VUE Logik übertragen werden -> </p>
-     </div>
       <div class="searchform col-sm-0 d-flex justify-content-end text-center">
-        <form action="/search" method="get" class="searchForm searchForm">
+        
           <div class="fixbar input-group">
-            <input type="input" class="fixbar form-control rounded" placeholder="Search" name="search" />
+            <input v-model="searchterm" type="input" class="fixbar form-control rounded" placeholder="Search" name="search" />
             <div class="fixbar dropdown">
               <button class="button-17 fixbar btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,28 +71,17 @@ export default {
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li>
                   <label for="price_von">Preis Von:</label><br>
-                  <input class="fixbar dropdown-item" type="number" id="price_von" name="price_von" value="0">
+                  <input v-model="price_von" class="fixbar dropdown-item" type="number" id="price_von" name="price_von" placeholder="0">
                 </li>
                 <li>
                   <label for="price_bis">Preis Bis:</label><br>
-                  <input class="dropdown-item" type="number" id="price_bis" name="price_bis" value="100">
-                </li>
-                <li>
-                  <label class="col-form-label-lg">Kategorie</label>
-                  <select class="form-select" name="category">
-                    <option disabled selected value="0">select</option>
-                    <% categories.forEach(function(category){ %>
-                      <option value="<%= category.id %>">
-                        <%= category.name %>
-                      </option>
-                      <% }); %>
-                  </select>
+                  €
+                  <input v-model="price_bis" class="dropdown-item" type="number" id="price_bis" name="price_bis" placeholder="100">
                 </li>
               </ul>
             </div>
             <button type="submit" class="fixbar button-17 btn btn-secondary" @click="refreshItems">Suchen</button>
           </div>
-        </form>
       </div>
     </div>
   </div>
