@@ -30,7 +30,7 @@ module.exports.policies = {
     'destroyOne': 'is-super-admin',
     'editOne': 'is-super-admin',
     'updateOne': 'is-super-admin',
-    'indexAction': true,
+    'indexAction': 'is-logged-in',
     'findOne': true,
     'overviewAction': true,
   },
