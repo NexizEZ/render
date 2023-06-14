@@ -94,12 +94,12 @@ export default {
       </div>
     </div>
   </div>
-
+  
   <div class="row">
-    <div class="col-12" v-for="item in items">
+    <div class="col-4" v-for="item in items">
       <div class="card card2">
         <span :id=item.id class="card-link" @click="order(item.id)">
-          <img src="/images/croissants.jpg" alt="Image 2" class="card-img">
+          <img src="https://wetebucket.s3.us-west-2.amazonaws.com/<%= item.picture %>" class="img-fluid rounded card-img" alt="Image 2">
 
           <a class="card-caption card-caption-bottom-left" :href="'/item/' + item.id">
             {{ item.name }}

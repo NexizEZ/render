@@ -17,17 +17,18 @@ module.exports = {
       },
     
       uploadImage: async function (req, res) {
-        sails.log("Upload image for item...")
+        sails.log("Upload image for item...");
         // Define the parameters of the upload as an object
         // In this example only the path, wehre to upload the image, is set
         let params = {
-          //dirname: require('path').resolve(sails.config.appPath, 'assets/images/items/')
+          //dirname: require('path').resolve(sails.config.appPath, 'assets/images/meals/')
           adapter: require('skipper-s3'),
           key: sails.config.s3accesskey,
-          secret: 'EanIbXbkg4/l9rTqVvImsJzqLcfhKNMEx8/qhGLF',
+          secret: sails.config.s3secret,
           bucket: 'wetebucket',
           region: 'us-west-2'
         };
+    
     
         let callback = async function (err, uploadedFiles) {
           if (err) {
