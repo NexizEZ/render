@@ -27,7 +27,7 @@ module.exports = {
         categories
     }
 
-    console.log("result")
+    console.log("### Getting Shop Items ####")
     return result;
       
   

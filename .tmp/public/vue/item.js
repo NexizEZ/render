@@ -55,64 +55,84 @@ export default {
       }
     },
     resetItems: function (event) {
-      this.items = this.itemsbackup;
+    let url = new URL(origin + "/api/items");
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => (this.items = data.items,
+        this.categories = data.categories,
+        this.itemsbackup = data.items));
+
+      this.choosecategory= "",
+      this.price_von= "",
+      this.price_bis= "",
+      this.searchterm= ""
     },
 
   },
   template: `
   <div class="container">
   <div class="row">
-    <div class="col-sm-0">
+    <div class="col-12">
       <div class="searchform">
         <div class="fixbar input-group">
-          <button type="submit" class="fixbar button-17 btn btn-secondary" @click="resetItems">Reset</button>
-          <input v-model="searchterm" type="input" class="fixbar form-control rounded" placeholder="Search" name="search" />
+          <input v-model="searchterm" type="input" class="fixbar form-control rounded" placeholder="Search"
+            name="search" />
+
           <div class="fixbar dropdown">
-            <button class="button-17 fixbar btn btn-secondary dropdown-toggle buttonradius" type="button" id="dropdownMenuButton1"
-              data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="button-17 fixbar btn btn-secondary dropdown-toggle buttonradius" type="button"
+              id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Filter
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
                 <label for="price_von">Preis Von: €</label><br>
-                <input v-model="price_von" class="fixbar dropdown-item" type="number" id="price_von" name="price_von" placeholder="0">
+                <input v-model="price_von" class="fixbar dropdown-item" type="number" id="price_von" name="price_von"
+                  placeholder="0">
               </li>
               <li>
                 <label for="price_von">Preis Bis: €</label><br>
-                <input v-model="price_bis" class="fixbar dropdown-item" type="number" id="price_bis" name="price_bis" placeholder="25">
+                <input v-model="price_bis" class="fixbar dropdown-item" type="number" id="price_bis" name="price_bis"
+                  placeholder="25">
               </li>
               <li>
                 <label for="choosecategory">Kategorie</label><br>
                 <select v-model="choosecategory" class="form-select">
-                  <option v-for="category in categories" :value="category" :key="category.id">{{ category.name }}</option>
+                  <option v-for="category in categories" :value="category" :key="category.id">{{ category.name }}
+                  </option>
                 </select>
               </li>
             </ul>
           </div>
-          <button type="submit" class="button-17 btn btn-secondary" @click="refreshItems">Suchen</button>
+
+          <div class="button-group">
+            <button type="submit" class="fixbar button-17 btn btn-secondary" @click="refreshItems">Suchen</button>
+            <button type="submit" class="fixbar button-17 btn btn-secondary" @click="resetItems">Reset</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="row">
-    <div class="col-4" v-for="item in items">
+    <div class="col-12 col-sm-6 col-md-4 text-center" v-for="item in items" :key="item.id">
       <div class="card card2">
-        <span :id=item.id class="card-link" @click="order(item.id)">
-          <img src="https://wetebucket.s3.us-west-2.amazonaws.com/<%= item.picture %>" class="img-fluid rounded card-img" alt="Image 2">
-
-          <a class="card-caption card-caption-bottom-left" :href="'/item/' + item.id">
+        <a :href="'/item/' + item.id" class="card-link">
+          <div class="card-img-container">
+            <img :src="'https://wetebucket.s3.us-west-2.amazonaws.com/' + item.picture"
+              class="img-fluid rounded card-img" alt="Image 2">
+          </div>
+          <div class="card-caption card-caption-bottom-left">
             {{ item.name }}
-          </a>
-
-          <span class="card-caption card-caption-bottom-right">
+          </div>
+          <div class="card-caption card-caption-bottom-right">
             € {{ item.price }}
-          </span>
-        </span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
 </div>
+
 `,
 
 };
