@@ -28,9 +28,9 @@ module.exports = {
     sails.log.debug("### creating order  ###");
 
     const orderValues = {
-      totalAmount: 1,
-      address: req.session.address.address,
-      addressName: req.session.address.name,
+      totalAmount: req.session.total,
+      address: req.session.address.strasse + " " + req.session.address.hausnummer + " " + req.session.address.postleitzahl,
+      addressName: req.session.address.vorname + " " + req.session.address.name,
       userId: req.session.userId,
     };
 

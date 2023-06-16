@@ -13,8 +13,23 @@ module.exports = {
             type: 'string',
             required: true
         },
-        address: {
-            description: 'Shipping address',
+        vorname: {
+            description: 'Shipping address vorname',
+            type: 'string',
+            required: true
+        },
+        strasse: {
+            description: 'Shipping address strasse',
+            type: 'string',
+            required: true
+        },
+        hausnummer: {
+            description: 'Shipping address hausnummer',
+            type: 'string',
+            required: true
+        },
+        postleitzahl: {
+            description: 'Shipping address postleitzahl',
             type: 'string',
             required: true
         },
@@ -35,7 +50,6 @@ module.exports = {
             "hausnummer": inputs.hausnummer,
             "postleitzahl": inputs.postleitzahl
         };
-        console.log("Adress: " + result);
         return;
     }
 

@@ -27,13 +27,14 @@ module.exports = {
             pricetotal = pricetotal + Item.price;
         });
 
+        this.req.session.total = pricetotal;
+
         let result = {
             "pricetotal": pricetotal,
             "basket": this.req.session.basket,
             "address": this.req.session.address,
         }
-
-        console.log(result);
+        
         return result;
     }
 };

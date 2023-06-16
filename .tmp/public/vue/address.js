@@ -41,7 +41,7 @@ export default {
         
         //strasse
         if (this.strasse.length < 3) {
-          this.errorMessage = "Geben Sie bitte die komplette Adresse ein!";
+          this.errorMessage = "Eine Straße muss mindestens aus 3 Zeichen bestehen!";
           return; 
         }
 

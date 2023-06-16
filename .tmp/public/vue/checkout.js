@@ -22,11 +22,10 @@ export default {
       .then(data => {
         this.basket = data.basket,
         this.name = data.address.name,
-        this.vorname = data.adress.vorname,
-        this.address = data.address.address,
-        this.strasse = data.adress.strasse,
-        this.hausnummer = data.adress.hausnummer,
-        this.postleitzahl = data.adress.postleitzahl,
+        this.vorname = data.address.vorname,
+        this.strasse = data.address.strasse,
+        this.hausnummer = data.address.hausnummer,
+        this.postleitzahl = data.address.postleitzahl,
         this.pricetotal = data.pricetotal
       })
   },
@@ -55,7 +54,10 @@ export default {
     Name: {{ vorname }} {{ name }}
   </div>
   <div class="h4">
-    Adresse: {{ address }}
+    Anschrift: {{ strasse }} {{ hausnummer }}
+  </div>
+  <div class="h4">
+    Postleitzahl: {{ postleitzahl }}
   </div>
 
   <div class="d-flex justify-content-end">
