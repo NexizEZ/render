@@ -38,10 +38,10 @@ export default {
   </ul>
 
   <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-center">
-    <button @click="remove" class="btn btn-primary button-17 mb-3 mb-md-0">Einkaufskorb leeren</button>
+    <button v-if="basket.length" @click="remove" class="btn btn-primary button-17 mb-3 mb-md-0">Einkaufskorb leeren</button>
 
-    <router-link class="btn btn-secondary button-17 mb-3 mb-md-0" to="/">Weiter einkaufen</router-link>
-    <router-link class="btn btn-primary button-17" to="/address">Bestellung abschließen</router-link>
+    <a class="btn btn-secondary button-17 mb-3 mb-md-0" href="/order">Weiter einkaufen</a>
+    <router-link v-if="basket.length" class="btn btn-primary button-17" to="/address">Bestellung abschließen</router-link>
   </div>
 </div>
   `,

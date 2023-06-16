@@ -57,7 +57,7 @@ export default {
     Anschrift: {{ strasse }} {{ hausnummer }}
   </div>
   <div class="h4">
-    Postleitzahl:{{ postleitzahl }}
+    Postleitzahl: {{ postleitzahl }}
   </div>
 
   <div class="d-flex justify-content-end">

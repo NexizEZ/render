@@ -64,13 +64,14 @@
                         <li>
                             <div class="d-flex justify-content-between">
                                 <span>{{ item.name }}</span>
-                                <span>{{ item.price }} €</span>
                             </div>
                         </li>
                     </div>
                 </ul>
                 <div class="col-md-6">
-                    <button class="button-17" @click="storno(order.id)">Stonieren</button>
+                    <div class="d-flex justify-content-end">
+                        <button class="button-17" @click="storno(order.id)">Stonieren</button>
+                    </div>
                 </div>
             </li>
         </ul>
