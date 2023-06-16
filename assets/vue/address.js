@@ -83,7 +83,7 @@ export default {
       }
     },  
     template: `
-    <div class="bodyheight d-flex align-items-center">
+    <div class="d-flex align-items-center">
     <div class="container">
     <h1 class="mt-4">Lieferdaten</h1>
     
@@ -112,7 +112,7 @@ export default {
       </div>
     </form>
     <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
-    <div class="d-flex justify-content-end">
+    <div class="row d-flex justify-content-end">
       <router-link class="btn btn-secondary me-3 button-17" to="/">Weiter einkaufen</router-link>
       <button class="btn btn-primary button-17" @click="submitAddress">Bestellen</button>
     </div>

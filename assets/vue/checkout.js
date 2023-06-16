@@ -31,8 +31,8 @@ export default {
   },
 
   template: `
-  <div class="bodyheight d-flex align-items-center">
-  <div class="container">
+  <div class="d-flex align-items-center">
+  <div class="container minheight">
   <h2 class="mt-4">Bestellung</h2>
 
   <ul class="list-group mb-4">
@@ -57,7 +57,7 @@ export default {
     Anschrift: {{ strasse }} {{ hausnummer }}
   </div>
   <div class="h4">
-    Postleitzahl: {{ postleitzahl }}
+    Postleitzahl:{{ postleitzahl }}
   </div>
 
   <div class="d-flex justify-content-end">

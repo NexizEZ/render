@@ -34,6 +34,8 @@ module.exports = {
             "basket": this.req.session.basket,
             "address": this.req.session.address,
         }
+
+        console.log(result);
         
         return result;
     }
