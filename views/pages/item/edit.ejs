@@ -39,7 +39,7 @@
                         <div class="form-group mb-3">
                             <label for="category" class="form-label">Kategorie</label>
                             <select class="form-select" id="category" name="category" required>
-                                <option value="" selected disabled>Bitte Kategorie auswählen</option>
+                                <option value="item.category" selected disabled><%= item.category.name %></option>
                                 <% categories.forEach(function(category){ %>
                                     <option value="<%= category.id %>">
                                         <%= category.name %>

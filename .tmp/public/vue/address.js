@@ -2,49 +2,78 @@ export default {
     data() {
       return {
         name: "",
-        address: "",
-        errorMessage: ""
+        errorMessage: "",
+        vorname: "",
+        strasse: "",
+        hausnummer: "",
+        postleitzahl: ""
       };
     },
     methods: {
       submitAddress() {
 
-        const addressRegex = /^[a-zA-Z0-9\s.\-/]+$/
-
-        if (this.name.trim() === "" || this.address.trim() === "") {
+        if (this.name.trim() === "" || this.vorname.trim() === "" || this.strasse.trim() === "" || this.hausnummer.trim() === "" || this.postleitzahl.trim() === "") {
           this.errorMessage = "Bitte füllen Sie alle Felder aus.";
-          return; // Verhindert das Absenden des Formulars
+          return;
         }
   
-        if (this.name.length < 6) {
+        // name
+        if (this.name.length < 3) {
           this.errorMessage = "Der Name muss mindestens 3 Zeichen lang sein.";
           return; 
         }
   
-        if (!/^[a-zA-Z\s-]+$/.test(this.name)) {
-          this.errorMessage = "Der Name darf nur Buchstaben, Leerzeichen und Bindestrich enthalten.";
+        if (!/^[a-zA-Z]+$/.test(this.name)) {
+          this.errorMessage = "Der Name darf nur Buchstaben enthalten.";
           return; 
         }
 
-        if (this.address.length < 6) {
+        //vorname
+        if (this.vorname.length < 3) {
+          this.errorMessage = "Der Vorame muss mindestens 3 Zeichen lang sein.";
+          return; 
+        }
+
+        if (!/^[a-zA-Z]+$/.test(this.vorname)) {
+          this.errorMessage = "Der Vorname darf nur Buchstaben enthalten.";
+          return; 
+        }
+        
+        //strasse
+        if (this.strasse.length < 3) {
           this.errorMessage = "Geben Sie bitte die komplette Adresse ein!";
           return; 
         }
 
-        if (!addressRegex.test(this.address)) {
-          this.errorMessage = "Die Adresse kann nur Buchstaben, Leerzeichen, Bindestrich, Punkt und Slash enthalten.";
+        if (!/^[a-zA-Z]+$/.test(this.strasse)) {
+          this.errorMessage = "Die Straße darf nur Buchstaben enthalten.";
           return; 
         }
 
-        //if (!addressRegex.test(this.address)) {
-        //  this.errorMessage = "Die Adresse kann nur Buchstaben, Leerzeichen, Bindestrich, Punkt und "/" enthalten.";
-        //  return; 
-        //}
+        //hausnummer
+        if (!/^[0-9-]+$/.test(this.hausnummer)) {
+          this.errorMessage = "Die Hausnummer darf nur Zahlen enthalten.";
+          return; 
+        }
+
+        if (this.hausnummer.length > 3) {
+          this.errorMessage = "Die Hausnummer kann nur bis zu 3 Zahlen enthalten";
+          return; 
+        }
+
+        //postleitzahl /^[0-9]{5}$/
+        if (!/^[0-9]{5}$/.test(this.postleitzahl)) {
+          this.errorMessage = "Die Postleitzahl darf nur aus 5 Zahlen bestehen.";
+          return; 
+        }
         
         let url = new URL(origin + "/api/address");
         let data = new FormData();
         data.append("name", this.name);
-        data.append("address", this.address);
+        data.append("vorname", this.vorname);
+        data.append("strasse", this.strasse);
+        data.append("hausnummer", this.hausnummer);
+        data.append("postleitzahl", this.postleitzahl);
         fetch(url, {
           method: "POST",
           body: data,
@@ -61,12 +90,24 @@ export default {
     <form>
       <div class="mt-4">
         <div class="mb-3">
+          <label class="form-label">Vorname</label>
+          <input type="text" class="form-control" maxlength="80" v-model="vorname">
+        </div>
+        <div class="mb-3">
           <label class="form-label">Name</label>
           <input type="text" class="form-control" maxlength="80" v-model="name">
         </div>
         <div class="mb-3">
-          <label class="form-label">Adresse</label>
-          <input type="text" class="form-control" maxlength="120" v-model="address">
+          <label class="form-label">Straße</label>
+          <input type="text" class="form-control" maxlength="120" v-model="strasse">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Hausnummer</label>
+          <input type="text" class="form-control" maxlength="120" v-model="hausnummer">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Postleitzahl</label>
+          <input type="text" class="form-control" maxlength="120" v-model="postleitzahl">
         </div>
       </div>
     </form>

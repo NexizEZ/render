@@ -4,7 +4,12 @@ export default {
       name: "",
       address: "",
       basket: [],
-      pricetotal: ""
+      pricetotal: "",
+      vorname: "",
+      strasse: "",
+      hausnummer: "",
+      postleitzahl: ""
+
     };
   },
   methods: {
@@ -16,9 +21,13 @@ export default {
       .then(res => res.json())
       .then(data => {
         this.basket = data.basket,
-          this.name = data.address.name,
-          this.address = data.address.address,
-          this.pricetotal = data.pricetotal
+        this.name = data.address.name,
+        this.vorname = data.adress.vorname,
+        this.address = data.address.address,
+        this.strasse = data.adress.strasse,
+        this.hausnummer = data.adress.hausnummer,
+        this.postleitzahl = data.adress.postleitzahl,
+        this.pricetotal = data.pricetotal
       })
   },
 
@@ -43,7 +52,7 @@ export default {
 
   <h2 class="mt-4">Lieferdaten</h2>
   <div class="h4">
-    Name: {{ name }}
+    Name: {{ vorname }} {{ name }}
   </div>
   <div class="h4">
     Adresse: {{ address }}

@@ -116,7 +116,7 @@ export default {
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4 text-center" v-for="item in items" :key="item.id">
       <div class="card card2">
-        <a :href="'/item/' + item.id" class="card-link">
+      <span :id=item.id class="card-link" @click="order(item.id)">
           <div class="card-img-container">
             <img :src="'https://wetebucket.s3.us-west-2.amazonaws.com/' + item.picture"
               class="img-fluid rounded card-img" alt="Image 2">
@@ -127,7 +127,7 @@ export default {
           <div class="card-caption card-caption-bottom-right">
             € {{ item.price }}
           </div>
-        </a>
+        </span>
       </div>
     </div>
   </div>

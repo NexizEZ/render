@@ -19,13 +19,13 @@ module.exports = {
 
     fn: async function (inputs) {
         console.log("### creating order ###")
-        orderValues.addressName = address.name;
-        orderValues.address = address.address;
         await Order.create({
             "totalAmount": 1,
-            "address": req.session.address.address,
             "addressName": req.session.address.name,
-            
+            "addressVorname": req.session.address.vorname,
+            "addressStrasse": req.session.address.strasse,
+            "addressHausnummer": req.session.address.hausnummer,
+            "addressPostleitzahl": req.session.address.postleitzahl,
         })
 
 

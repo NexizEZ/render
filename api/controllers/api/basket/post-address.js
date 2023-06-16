@@ -30,8 +30,12 @@ module.exports = {
         console.log("Push address..");
         this.req.session.address = {
             "name": inputs.name,
-            "address": inputs.address
+            "vorname": inputs.vorname,
+            "strasse": inputs.strasse,
+            "hausnummer": inputs.hausnummer,
+            "postleitzahl": inputs.postleitzahl
         };
+        console.log("Adress: " + result);
         return;
     }
 
