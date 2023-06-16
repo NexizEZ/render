@@ -38,6 +38,8 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/aboutus': { view: 'pages/about' },
+  '/impressum': { view: 'pages/impressum' },
+  '/privacypolicy': { view: 'pages/privacypolicy' },
 
 
   /***************************************************************************
