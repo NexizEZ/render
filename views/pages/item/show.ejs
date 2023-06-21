@@ -1,44 +1,65 @@
-<div class="container">
-  <div class="row justify-content-center align-items-center py-5">
+<div class="container py-5">
+  <div class="row justify-content-center align-items-center">
     <div class="col-md-6">
       <div class="p-4 border rounded bg-light">
         <% if(item.picture) { %>
           <div class="text-center mb-4">
-            <img src="https://wetebucket.s3.us-west-2.amazonaws.com/<%= item.picture %>" class="img-fluid rounded" alt="Product Image" style="max-width: 200px;">
+            <img src="https://wetebucket.s3.us-west-2.amazonaws.com/<%= item.picture %>"
+              class="img-fluid rounded product-image" alt="Product Image">
           </div>
-        <% } %>
-        <h1 class="text-center mt-4 mb-3">
-          <%= item.name %>
-        </h1>
-        <p class="text-center mb-4">
-          <%= item.description %>
-        </p>
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <h5>Preis</h5>
-          </div>
-          <div class="col-md-6">
-            <div class="text-end">€ <%= item.price %>
-            </div>
-          </div>
-        </div>
-        <% if(item.category) { %>
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <h5>Kategorie</h5>
-            </div>
-            <div class="col-md-6">
-              <div class="text-end">
-                <%= item.category.name %>
+          <% } %>
+            <h1 class="text-center mt-4 mb-3">
+              <%= item.name %>
+            </h1>
+            <p class="text-center mb-4">
+              <%= item.description %>
+            </p>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <h5>Preis</h5>
+              </div>
+              <div class="col-md-6">
+                <div class="text-end">€ <%= item.price %>
+                </div>
               </div>
             </div>
-          </div>
-        <% } %>
-        <div class="row">
-          <div class="col-md-12 d-flex justify-content-center">
-            <button onclick="history.back()" class="btn btn-secondary">Zurück</button>
-          </div>
-        </div>
+            <% if(item.category) { %>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <h5>Kategorie</h5>
+                </div>
+                <div class="col-md-6">
+                  <div class="text-end">
+                    <%= item.category.name %>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <h5>Type</h5>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-end">
+                      <%= item.type %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <h5>Item Order</h5>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-end">
+                      <%= item.itemorder %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 d-flex justify-content-center">
+                    <button onclick="history.back()" class="btn btn-secondary button-17">Zurück</button>
+                  </div>
+                </div>
       </div>
     </div>
   </div>
