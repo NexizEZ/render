@@ -121,9 +121,11 @@ export default {
             <img :src="'https://wetebucket.s3.us-west-2.amazonaws.com/' + item.picture"
               class="img-fluid rounded card-img" alt="Image 2">
           </div>
+          <a :href="'/item/' + item.id" class="card-link">
           <div class="card-caption card-caption-bottom-left">
             {{ item.name }}
           </div>
+          </a>
           <div class="card-caption card-caption-bottom-right">
             € {{ item.price }}
           </div>
