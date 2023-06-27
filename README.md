@@ -1,6 +1,7 @@
 # EasyFrisch
 Timm Schimmel, Samanta Szczurowska
 
+------------------------------------------------------------------------------
 
 a [Sails v1](https://sailsjs.com) application
 
@@ -26,7 +27,7 @@ This app was originally generated on Thu Apr 06 2023 12:42:05 GMT+0200 (Central 
 Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
 -->
 
-
+-----------------------------------------------------------------------------
 
 - [1. Spezifikation und Design](#1-spezifikation-und-design)
   - [1.1. Projektziele](#11-projektziele)
@@ -37,10 +38,10 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
   - [1.4. Kontext Diagramm](#14-kontext-diagramm)
   - [1.5. Aktoren](#15-aktoren)
   - [1.6. Use Cases](#16-use-cases)
-    - [**UC CRUD**](#uc-crud)
     - [**UC Info**](#uc-info)
-    - [**UC Transaction**](#uc-transaction)
     - [**UC Search**](#uc-search)
+    - [**UC Transaction**](#uc-transaction)
+    - [**UC CRUD**](#uc-crud)
 - [2. Implementierung](#2-implementierung)
 - [3. Bereitstellung](#3-bereitstellung)
 - [4. Optimierung](#4-optimierung)
@@ -102,19 +103,6 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 
 ![](/assets/images/useCaseDiagram.png)
 
-#### **UC CRUD**
-
-| UC Name | Sortiment bearbeiten |
-| --- | --- |
-| Beschreibung | Neue Produkte können zum Sortiment hinzugefügt werden und bestehende Produkte entfernt oder bearbeitet werden. |
-| Aktor(en) | Administrator |
-
-| UC Name | Benutzer bearbeiten |
-| --- | --- |
-| Beschreibung | Daten der Benutzer können bearbeitet und/oder gelöscht werden. |
-| Aktor(en) | Administrator, Kunde |
-
-
 
 #### **UC Info**
 
@@ -134,6 +122,16 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 | Aktor(en) | Administrator, Kunde |
 
 
+
+#### **UC Search**
+
+| UC Name | Produkt suchen |
+| --- | --- |
+| Beschreibung | Der Administrator, der (registrierte) Kunde und der Besucher können sich durch Filtern über ausgewählte Produkte informieren. |
+| Aktor(en) | Administrator, Kunde, Besucher |
+
+
+
 #### **UC Transaction**
 
 | UC Name | Bestellung aufgeben |
@@ -147,15 +145,68 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 | Aktor(en) | Kunde |
 
 
-#### **UC Search**
 
-| UC Name | Produkt suchen |
+#### **UC CRUD**
+
+| UC Name | Sortiment bearbeiten |
 | --- | --- |
-| Beschreibung | Der Administrator, der (registrierte) Kunde und der Besucher können sich durch Filtern über ausgewählte Produkte informieren. |
-| Aktor(en) | Administrator, Kunde, Besucher |
+| Beschreibung | Neue Produkte können zum Sortiment hinzugefügt werden und bestehende Produkte entfernt oder bearbeitet werden. |
+| Aktor(en) | Administrator |
+
+| UC Name | Benutzer bearbeiten |
+| --- | --- |
+| Beschreibung | Daten der Benutzer können bearbeitet und/oder gelöscht werden. |
+| Aktor(en) | Administrator, Kunde |
+
+
+
 
 
 ## 2. Implementierung
+
+Generell werden alle Use Cases mit Hilfe von HTML und CSS gestaltet. HTML wird verwendet, um die Struktur und den Inhalt der Benutzeroberfläche zu definieren, während CSS verwendet wird, um das Erscheinungsbild anzupassen und das Benutzererlebnis zu verbessern. Dabei hat uns das Bootstrap-Framework ebenfalls sehr geholfen.
+
+Die Funktionalität der Use Cases unserer Web-Applikation wurde hingegen größtenteils durch den Einsatz von Controllern realisiert. Controller sind Komponenten, die für die Verarbeitung von Benutzeranfragen zuständig sind und die Logik zur Steuerung des Datenflusses zwischen Modellen und Ansichten enthalten. Zusätzlich wurden Endpunkte verwendet, um URLs bereitzustellen, die für den Zugriff auf Ressourcen und die Ausführung von Operationen verantwortlich sind. Dies hat uns ermöglicht, die Verwaltung von Ressourcen in der Webanwendung zu erleichtern.
+
+Um die Verwaltung und Verarbeitung der Daten zu ermöglichen und die Web-Applikation interaktiver zu gestalten, wurde die Webanwendung mit einer MySQL-Datenbank verbunden. Dadurch konnten wir die Funktionalität der Web-Applikation erweitern und eine verbesserte Benutzererfahrung bieten.
+
+-----------------------------------------------------------------------------
+
+**UC SEARCH**
+
+Funktionlität:
++ Die Suche ist eine Funktion, die es Benutzern ermöglicht, nach bestimmten Inhalten in der Webanwendung zu suchen. Die Suchergebnisse werden in Echtzeit angezeigt und aktualisiert, um den Benutzern relevante Ergebnisse zu liefern.
+
+Die Implementierung des Suchformulars verwendet das Vue.js-Framework in Kombination mit HTML, CSS und JavaScript, um eine interaktive Benutzeroberfläche zu erstellen. Vue.js bietet Datenbindung und Ereignisbehandlungsfunktionen, um den Zustand des Formulars zu verfolgen und auf Benutzerinteraktionen zu reagieren. JavaScript wird verwendet, um API-Anfragen zu senden und die Ergebnisse zu verarbeiten.
+
+---------------------------------------------------------------------------
+
+
+**UC TRANSACTION**
+
+Funktionalität:
++ Bestellung verwalten (aufgeben/stornieren)
+
+Um den Use Case zu implementieren, haben wir Vue Router, Vue-Komponenten sowie Datenmodelle und Datenbankbeziehungen genutzt. Der Bestellvorgang wird durch verschiedene Ansichten und Interaktionen mit den Datenmodellen umgesetzt. Zur Kommunikation mit dem Server und zum Abrufen bzw. Speichern von Bestell- und Artikelinformationen verwenden wir eine REST-API (Endpunkte).
+
+Vue Router ermöglicht es uns, die verschiedenen Schritte des Bestellvorgangs in separate Ansichten zu organisieren und die Navigation zwischen ihnen zu verwalten. Die Vue-Komponenten dienen dazu, die Benutzeroberfläche für jeden Schritt der Bestellung zu definieren und die Logik der Datenverarbeitung zu implementieren.
+
+--------------------------------------------------------------------------
+
+**UC CRUD**
+
+Funktionalität:
++ Sortiment bearbeiten 
++ Benutzerdaten bearbeiten (Password ändern, persönliche Benutzerinformationen bearbeiten)
+
+Der Use Case verwendet JavaScript (Vue.js) für die Interaktivität und dynamische Aktualisierung der Webseite. Vue.js-Komponenten werden eingesetzt, um bestimmte Funktionen zu bündeln und die Wiederverwendbarkeit zu verbessern.
+
+Auf der serverseitigen Seite kommt Node.js (Sails.js) zum Einsatz. Sails.js ist ein MVC-Framework für Node.js und ermöglicht die Verarbeitung von serverseitiger Logik und Datenbankoperationen.
+
+Für das Hochladen und Speichern von Bildern wird jedoch S3 (Amazon Simple Storage Service) genutzt. S3 ist ein Cloud-Speicherdienst von Amazon Web Services (AWS).
+
+
+---------------------------------------------------------------------------
 
 
 ## 3. Bereitstellung
@@ -170,13 +221,14 @@ Passwort: *****
 
 **User:**
 
-Email:     
-Passwort: *****
+Email: max.mustermann@gmx.com  
+Passwort: Mu$terMann1
 
 
 ## 4. Optimierung
 
-Beschreibung der Optimierungsmaßnahmen.
+![](/assets/images/lighthouseReport.png)
 
+Um die Web-Applikation zu beschleunigen und die Performance zu verbessern, wurden die Fotos von PNG/JPG in das optimierte WEBP-Format konvertiert. Durch diese Umformatierung werden die Daten schneller übertragen, was zu einer insgesamt schnelleren Ladezeit der Web-Applikation führt.
 
-
+Darüber hinaus wurde der Code optimiert und nicht verwendete Teile entfernt. Durch diese Optimierungen wird der Code effizienter, was zu einer verbesserten Leistung der Web-Applikation führt.

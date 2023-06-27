@@ -43,6 +43,7 @@ h3 {
     color: #ffff;
     padding: 3px 7px;
     font-size: 28px;
+    text-shadow: 2px 2px 4px #212529;
   }
 
   .card-caption-bottom-left {
