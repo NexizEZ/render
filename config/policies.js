@@ -36,5 +36,8 @@ module.exports.policies = {
   },
   CategoryController: {
     '*': 'is-super-admin',
+  },
+  OrderController: {
+    'listAll': 'is-super-admin',
   }
 };

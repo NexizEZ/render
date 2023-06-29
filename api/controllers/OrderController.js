@@ -24,6 +24,19 @@ module.exports = {
     }
   },
 
+  listAll: async function (req, res) {
+    sails.log.debug("### List all Orders of User ###");
+
+    try {
+      const orders = await Order.find().populate("item");
+
+      return res.ok(orders);
+    } catch (error) {
+      sails.log.error(error);
+      return res.serverError("An error occurred while fetching orders.");
+    }
+  },
+
   commit: async function (req, res) {
     sails.log.debug("### creating order  ###");
 
