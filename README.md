@@ -93,9 +93,9 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 
 ### 1.5. Aktoren
 
-| Besucher | Kunde | Administrator| 
+| Besucher | Kunde | Administrator/Miarbeiter | 
 |----------|----------|----------|
-| Kann sich die Homepage anschauen, sich über die Bäckerei/das Team sowie über das Angebot informieren. Zudem kann er ein Account erstellen. | Ist ein registrirter Benutzer, der sich die Produkte nicht nur anschauen kann, sondern auch bestellen. Außerdem kann er eine Bestellung aufgeben, sich sie anschauen und stornieren. Außerdem hat er die Möglichkeit, sein Account/seine Daten zu bearbeiten. | Ist ein Mitarbeiter der Bäckerei, der für die Verwaltung des Sortiments verantwortlich ist (neue Produkte hinzufügen und bestehende Produkte bearbeiten, löschen oder sich anzeigen lassen). |
+| Kann sich die Homepage anschauen, sich über die Bäckerei/das Team sowie über das Angebot informieren. Zudem kann er ein Account erstellen. | Ist ein registrirter Benutzer, der sich die Produkte nicht nur anschauen kann, sondern auch bestellen. Außerdem kann er eine Bestellung aufgeben, sich sie anschauen und stornieren. Außerdem hat er die Möglichkeit, sein Account/seine Daten zu bearbeiten. | Ist ein Mitarbeiter der Bäckerei, der für die Verwaltung des Sortiments verantwortlich ist (neue Produkte hinzufügen und bestehende Produkte bearbeiten, löschen oder sich anzeigen lassen). Er kann auch die Bestellungen der Kunden einsehen und sie stornieren/löschen. |
 
 
 
@@ -213,16 +213,21 @@ Für das Hochladen und Speichern von Bildern wird jedoch S3 (Amazon Simple Stora
 
 [easyfrisch.onrender.com](https://easyfrisch.onrender.com)
 
-**Admin:**
+**Admin/Mitarbeiter:** 
 
 Email: admin@easyfrisch.com     
-Passwort: *****
+Passwort: admin
 
 
-**User:**
+**Kunde:**
 
 Email: max.mustermann@gmx.com  
 Passwort: Mu$terMann1
+
+
+**Besucher:**
+
+Besucher hat kein Account.
 
 
 ## 4. Optimierung
