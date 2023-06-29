@@ -23,7 +23,7 @@ export default {
           return; 
         }
   
-        if (!/^[a-zA-Z]+$/.test(this.name)) {
+        if (!/^[a-zA-Zß]+$/.test(this.name)) {
           this.errorMessage = "Der Name darf nur Buchstaben enthalten.";
           return; 
         }
@@ -45,7 +45,7 @@ export default {
           return; 
         }
 
-        if (!/^[a-zA-Z]+$/.test(this.strasse)) {
+        if (!/^[a-zA-Zß]+$/.test(this.strasse)) {
           this.errorMessage = "Die Straße darf nur Buchstaben enthalten.";
           return; 
         }
