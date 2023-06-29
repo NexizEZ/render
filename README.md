@@ -29,22 +29,25 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 
 -----------------------------------------------------------------------------
 
-- [1. Spezifikation und Design](#1-spezifikation-und-design)
-  - [1.1. Projektziele](#11-projektziele)
-  - [1.2. Design](#11-design)
-    - [1.2.1. Style Tile](#121-style-tile)
-    - [1.2.2. Mockups](#122-mockups)
-  - [1.3. Personas](#13-personas)
-  - [1.4. Kontext Diagramm](#14-kontext-diagramm)
-  - [1.5. Aktoren](#15-aktoren)
-  - [1.6. Use Cases](#16-use-cases)
-    - [**UC Info**](#uc-info)
-    - [**UC Search**](#uc-search)
-    - [**UC Transaction**](#uc-transaction)
-    - [**UC CRUD**](#uc-crud)
-- [2. Implementierung](#2-implementierung)
-- [3. Bereitstellung](#3-bereitstellung)
-- [4. Optimierung](#4-optimierung)
+- [EasyFrisch](#easyfrisch)
+    - [Links](#links)
+    - [Version info](#version-info)
+  - [1. Spezifikation und Design](#1-spezifikation-und-design)
+    - [1.1. Projektziele](#11-projektziele)
+    - [1.2. Design](#12-design)
+      - [1.2.1. Style Tile](#121-style-tile)
+      - [1.2.2. Mockups](#122-mockups)
+    - [1.3. Personas](#13-personas)
+    - [1.4. Kontext Diagramm](#14-kontext-diagramm)
+    - [1.5. Aktoren](#15-aktoren)
+    - [1.6. Use Cases](#16-use-cases)
+      - [**UC Info**](#uc-info)
+      - [**UC Search**](#uc-search)
+      - [**UC Transaction**](#uc-transaction)
+      - [**UC CRUD**](#uc-crud)
+  - [2. Implementierung](#2-implementierung)
+  - [3. Bereitstellung](#3-bereitstellung)
+  - [4. Optimierung](#4-optimierung)
 
 
 
@@ -177,7 +180,25 @@ Um die Verwaltung und Verarbeitung der Daten zu ermöglichen und die Web-Applika
 Funktionlität:
 + Die Suche ist eine Funktion, die es Benutzern ermöglicht, nach bestimmten Inhalten in der Webanwendung zu suchen. Die Suchergebnisse werden in Echtzeit angezeigt und aktualisiert, um den Benutzern relevante Ergebnisse zu liefern.
 
-Die Implementierung des Suchformulars verwendet das Vue.js-Framework in Kombination mit HTML, CSS und JavaScript, um eine interaktive Benutzeroberfläche zu erstellen. Vue.js bietet Datenbindung und Ereignisbehandlungsfunktionen, um den Zustand des Formulars zu verfolgen und auf Benutzerinteraktionen zu reagieren. JavaScript wird verwendet, um API-Anfragen zu senden und die Ergebnisse zu verarbeiten.
+Die Implementierung des Suchformulars ist einmal in EJS implementiert aber wird auch auf der Shopseite verwendet. Dafür wird das Vue.js-Framework in Kombination mit HTML, CSS und JavaScript, um eine interaktive Benutzeroberfläche zu erstellen. Vue.js bietet Datenbindung und Ereignisbehandlungsfunktionen, um den Zustand des Formulars zu verfolgen und auf Benutzerinteraktionen zu reagieren. JavaScript wird verwendet, um API-Anfragen zu senden und die Ergebnisse zu verarbeiten.
+
+**Implementierung:**
+
+EJS:
+Die Implementierung des Such-Filters in EJS ist über die Route **/item** zu finden, im File: 
+ **/pages/item/index.ejs**
+
+Vue:
+Die Implementierung des Such-Filters in VUE ist über die Route **/order** zu finden.
+Wir verwenden hier einen VUE Router, welcher in 
+
+**views/pages/basket/basket.ejs** 
+
+initialisiert wird.
+
+Die Implementierung perse des Filters findet man in der Komponente:
+
+**assets/vue/item.js**
 
 ---------------------------------------------------------------------------
 
@@ -185,11 +206,31 @@ Die Implementierung des Suchformulars verwendet das Vue.js-Framework in Kombinat
 **UC TRANSACTION**
 
 Funktionalität:
-+ Bestellung verwalten (aufgeben/stornieren)
++ Bestellung aufgeben & stornieren
 
 Um den Use Case zu implementieren, haben wir Vue Router, Vue-Komponenten sowie Datenmodelle und Datenbankbeziehungen genutzt. Der Bestellvorgang wird durch verschiedene Ansichten und Interaktionen mit den Datenmodellen umgesetzt. Zur Kommunikation mit dem Server und zum Abrufen bzw. Speichern von Bestell- und Artikelinformationen verwenden wir eine REST-API (Endpunkte).
 
 Vue Router ermöglicht es uns, die verschiedenen Schritte des Bestellvorgangs in separate Ansichten zu organisieren und die Navigation zwischen ihnen zu verwalten. Die Vue-Komponenten dienen dazu, die Benutzeroberfläche für jeden Schritt der Bestellung zu definieren und die Logik der Datenverarbeitung zu implementieren.
+
+**Implementierung:**
+
+Die Bestellung wird über einen VUE-Router verwirklicht, welcher über die Route /order zu erreichen ist.
+Der Router verwendet die Komponenten aus: **assets/vue**
+
+
+Die Stonierung ist in zwei EJS Komponenten möglich.
+
+Als Kunde findet man die Stonierungsoption über die eigene Account-Overiew. 
+Diese findet man in der Datei: 
+
+**views/pages/account/account-overview.ejs**  mit der Vue-Komponente:  **assets/vue/orders.js** verwendet.
+
+
+Als Mitarbeiter hat man die Option alle Bestellungen einzusehen.
+
+Diese findet man unter:
+
+**views/pages/account/order-overview.ejs**  mit der Vue-Komponente:  **assets/vue/ordersAll.js**
 
 --------------------------------------------------------------------------
 
@@ -204,6 +245,27 @@ Der Use Case verwendet JavaScript (Vue.js) für die Interaktivität und dynamisc
 Auf der serverseitigen Seite kommt Node.js (Sails.js) zum Einsatz. Sails.js ist ein MVC-Framework für Node.js und ermöglicht die Verarbeitung von serverseitiger Logik und Datenbankoperationen.
 
 Für das Hochladen und Speichern von Bildern wird jedoch S3 (Amazon Simple Storage Service) genutzt. S3 ist ein Cloud-Speicherdienst von Amazon Web Services (AWS).
+
+
+**Implementierung:** 
+
+Das Sortiment kann nur von einem Mitarbeiter bearbeitet werden.
+
+Diese findet man auf der Route:
+
+**/item** in der Datei **views/pages/item/index.ejs**
+
+Unter -> weitere Optionen kann man hier die Produkte löschen oder individuel bearbeiten.
+
+Der Benutzer kann seine Daten unter der Route:
+
+**/account** in der Datei: **views/pages/account/account-overview.ejs**
+
+bearbeiten.
+
+
+
+
 
 
 ---------------------------------------------------------------------------
@@ -227,7 +289,7 @@ Passwort: Mu$terMann1
 
 **Besucher:**
 
-Besucher hat kein Account.
+Besucher hat keinen Account.
 
 
 ## 4. Optimierung
