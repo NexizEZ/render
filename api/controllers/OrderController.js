@@ -68,7 +68,6 @@ module.exports = {
     let orderId = inputs.body.id;
 
     let order = await Order.findOne({ id: orderId }).populate('item');
-    sails.log.debug(order);
 
 
     // Remove the item from the order's item collection
