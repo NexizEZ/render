@@ -104,7 +104,7 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 
 ### 1.6. Use Cases
 
-![](/assets/images/useCaseDiagram.png)
+![](/assets/images/useCaseDiagram.jpg)
 
 
 #### **UC Info**
