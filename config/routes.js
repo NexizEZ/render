@@ -40,6 +40,7 @@ module.exports.routes = {
   '/aboutus': { view: 'pages/about' },
   '/impressum': { view: 'pages/impressum' },
   '/privacypolicy': { view: 'pages/privacypolicy' },
+  '/terms' : { view: 'pages/terms' },
 
 
   /***************************************************************************
